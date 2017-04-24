@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% import 'form.twig' as form %}
+
+{% block head %}
+	<title>Contact</title>
+{% endblock %}
+
+{% block content %}
+	<h1>Contact</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<form action="?p=contact" method="post">
+	{{ form.input('name', 'Your firstname and lastname') }}
+	{{ form.input('email', 'Your email') }}
+	{{ form.textarea('message', 'Your message') }}
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>
+
+{% endblock	%}

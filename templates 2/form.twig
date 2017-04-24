@@ -1,0 +1,13 @@
+{% macro input(name, label) %}
+	<div class="form-group">
+		<label for="{{ name }}">{{ label }}</label>
+		<input type="text" class="form-control" id="{{ name }}" name="{{ name }}">
+	</div>
+{% endmacro %}}
+
+{% macro textarea(name, label) %}
+	<div class="form-group">
+		<label for="{{ name }}">{{ label }}</label>
+		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}"></textarea>
+	</div>
+{% endmacro %}}
