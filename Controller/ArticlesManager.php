@@ -40,11 +40,11 @@ class ArticlesManager
     return $articles;
   }
 
-  public function getAllArticle()
+  public function getAllArticles()
   {
     $articles = [];
 
-    $q = $this->_db->query('SELECT * FROM articles ORDER BY date DESC LIMIT 10');
+    $q = $this->_db->query('SELECT * FROM articles ORDER BY date DESC');
 
     while ($datas = $q->fetch(PDO::FETCH_ASSOC))
     {

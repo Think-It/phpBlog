@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 require 'Controller/Article.php';
 require 'Controller/ArticlesManager.php';
 
-$db = new PDO('mysql:host=localhost;dbname=blogtwig', 'root', 'root');
+$db = new PDO("mysql:host=localhost; dbname=blogtwig; charset=UTF8", 'root', 'root');
 $articles = new ArticlesManager($db);
 
 // Routing
@@ -31,7 +31,7 @@ switch ($page){
 		break;
 	
 	case 'blog':
-	echo $twig->render('blog.twig', ['listArticles' => $articles->getAllArticle()]);
+	echo $twig->render('blog.twig', ['listArticles' => $articles->getAllArticles()]);
 	break;
 
 	case 'single' :

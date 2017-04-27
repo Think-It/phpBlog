@@ -7,6 +7,7 @@ Class Article{
     private $_author;
     private $_date;
     private $_callToRead;
+    private $_featuredImg;
     
       
     public function __construct(array $datas)
@@ -58,6 +59,11 @@ Class Article{
     return $this->_callToRead;
     }
     
+    public function featuredImg()
+    {
+    return $this->_featuredImg;
+    }
+    
     // Setters
     public function setId($id)
     {
@@ -106,6 +112,14 @@ Class Article{
     if (is_string($callToRead))
         {
         $this->_callToRead = $callToRead;
+        }
+    }
+    
+    public function setFeaturedImg($featuredImg)
+    {
+    if (is_string($featuredImg))
+        {
+        $this->_featuredImg = $featuredImg;
         }
     }
     
