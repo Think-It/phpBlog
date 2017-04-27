@@ -1,18 +1,21 @@
 {% extends 'layout.twig' %}
+{% import 'form.twig' as form %}
 
 {% block head %}
-	<title>Edit post</title>
+	<title>Edit article</title>
 {% endblock %}
 
 {% block content %}
-	<h1>Edit post</h1>
+    <h1>Edit post</h1><br>
 
 <form action="?p=editpost" method="post">
-	{{ form.input('title', 'Title of the post') }}
-	{{ form.input('author', 'Name of the author') }}
-	{{ form.textarea('Content', 'The content') }}
-	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Submit</button>
+	{{ form.input('title', 'Title') }}
+        {{ form.textarea('callToRead', 'Call to read') }}
+	{{ form.input('author', 'Author') }}
+	{{ form.textarea('content', 'Content') }}
+        {{ form.file('image', 'Browse featured image') }}
+        <div class="form-group"><br>
+		<button type="submit" class="btn btn-info">Update article</button>
 	</div>
 </form>
 

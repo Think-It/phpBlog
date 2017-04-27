@@ -10,4 +10,13 @@
 		<label for="{{ name }}">{{ label }}</label>
 		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}"></textarea>
 	</div>
+                
+{% endmacro %}}
+
+{% macro file(name, label) %}
+	<div class="form-group">
+		<label for="{{ name }}">{{ label }}</label>
+		<input type="file" class="form-control" id="{{ name }}" name="{{ name }}"></textarea>
+	</div>
+                
 {% endmacro %}}

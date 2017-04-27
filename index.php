@@ -37,6 +37,10 @@ switch ($page){
 	case 'single' :
 		echo $twig->render('single.twig', ['particularArticle' => $articles->getSingleArticle($_GET['id'])]);
 		break;
+            
+        case 'editpost' :
+	echo $twig->render('editpost.twig', ['editpost' => $articles->getSingleArticle($_GET['id'])]);
+	break;
 
 	default: 
 	header('HTTP/1.0 404 Not Found');

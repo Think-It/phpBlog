@@ -12,8 +12,11 @@
                 <hr>
                 <p class="lead">{{ particularArticles.callToRead }}</p>
                     <p>{{ particularArticles.content }}</p>
+                    <a style="margin-top:50px; margin-bottom:50px;"href="index.php?p=editpost&id={{particularArticles.id}}" class="btn btn-info" role="button">Edit this article</a>
             </div>
+            
         </div>
+            
             
 	{% endfor %}
 {% endblock %}
