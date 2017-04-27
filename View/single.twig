@@ -1,0 +1,16 @@
+{% extends 'layout.twig' %}
+{% block head %}
+	<title>{{ particularArticle.title}}</title>
+{% endblock %}
+
+{% block content %}
+	{% for particularArticles in particularArticle %}
+
+            <h2>{{ particularArticles.title}}</h2>
+            
+            <div class="row">
+                    <p>{{ particularArticles.content}}</p>
+            </div>
+            
+	{% endfor %}
+{% endblock %}
