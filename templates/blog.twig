@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+	<title>Blog</title>
+{% endblock %}
+
+{% block content %}
+	<h1>All posts</h1>
+
+	<div class="row">
+		{% for post in posts %}
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <div class="caption">
+		        <h4 class="card-title">{{ post.title }}</h4>
+		        <p>{{ post.dateCreated | date("d/m/Y H:i") }}<p>
+		        <p>{{ post.callToRead}}</p>
+		        <div class="well well-sm">Author : {{ post.author}}</div>
+		        <p><a href="index.php?p=single&id={{post.id}}" class="btn btn-primary" role="button">Read this post</a></p>
+		      </div>
+		    </div>
+		  </div>
+		{% endfor %}
+	</div>
+
+
+{% endblock	%}
+
