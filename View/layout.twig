@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
 
 
 
@@ -34,15 +35,15 @@
     <![endif]-->
   	<style>
   	body{
-  		padding-top: 7rem;
+
   	}
   	</style>
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container" id="navigation-tb">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -50,17 +51,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Nathan MEYER's blog</a>
+          <a class="navbar-brand" href="index.php?p=home"><img alt="logo" src="img/logo.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="index.php?p=home">Home</a></li>
-            <li class=""><a href="index.php?p=blog">Blog</a></li>
-            <li class=""><a href="index.php?p=contact">Contact</a></li>
-          </ul>
             <ul class="nav navbar-nav navbar-right">
-                <div class="btn-nav"><a class="btn btn-success btn-small navbar-btn" href="index.php?p=add-post">Create a post</a>
+                <li class=""><a href="index.php?p=home">Home</a></li>
+                <li class=""><a href="index.php?p=blog">Blog</a></li>
+                <li class=""><a href="index.php?p=contact">Contact</a></li>
+                <li class=""><a  href="index.php?p=add-post"><button class="btn btn-success btn-small navbar-btn create">Create a post</button></a></li>
             </ul>
+
         </div>
         </div><!--/.nav-collapse -->
       </div>

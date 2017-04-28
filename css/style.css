@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Kreon');
+
+p{
+    font-family: 'Droid Sans', sans-serif;
+    color:#8d8f92;
+}
+
+.navbar li {
+    font-family: 'Kreon', serif;
+    font-size:1.3em;
+}
+
+h1, h2, h3, h4, label{
+    font-family: 'Kreon', serif;
+    color: #333;
+}
+
+.btn{
+    font-size:1.2em;
+    border-radius:365px;
+    font-family: 'Kreon', serif;
+}
+
+.navbar-default{
+    background-color:transparent;
+    border:none;
+}
+
+.navbar-default .navbar-collapse{
+    border-bottom: dashed 0.5px #c9c9c9;
+}
+
+.thumbnail{
+    background-color: #fbfbfb;
+    border: 1px solid #e6eef0;
+}
+
+.intro{
+    margin: 40px 0 20px 0;
+}
+
+.navbar-brand {
+  height:110px;
+  padding: 0px;
+}
+.navbar-brand>img {
+  
+  padding: 15px;
+}
+
+.presentation{
+border-bottom: dashed 0.5px #c9c9c9;
+}
+
+.mybutton{
+    background-color:#e6eef0;
+    color:#14162e;
+    border:none;
+}
+
+.mybutton:hover{
+    background-color:#fff;
+    color:#14162e;
+    border:none;
+}
+
+.mybutton:active{
+    background-color:#fff;
+    color:#14162e;
+    border:none;
+}
+
+.mybutton:focus{
+    background-color:#fff;
+    color:#14162e;
+    border:none;
+}
+
+@media(min-width:768px){
+    .navbar-nav li a {
+     line-height: 95px;
+    }
+}
+
+@media(max-width:768px){
+    #navigation-tb {
+        border-bottom: dashed 0.5px #c9c9c9;
+        padding-bottom:20px;
+    }
+    .navbar-default .navbar-collapse{
+        border:none;
+    }
+}
