@@ -1,7 +1,8 @@
 <?php
 require 'vendor/autoload.php';
-require 'Controller/Post.php';
-require 'Controller/PostsManager.php';
+require 'Model/Post.php';
+require 'Model/PostsManager.php';
+require 'Controller/Controller.php';
 
 $db = new PDO("mysql:host=localhost; dbname=blogtwig; charset=UTF8", 'root', 'root');
 $posts = new PostsManager($db);
@@ -20,10 +21,12 @@ $twig = new Twig_Environment($loader, [
 	'cache' => false, // __DIR__ . '/tmp'
 	]);
 
+$controller = new Controller($twig, $db);
+
 switch ($page){
 
 	case 'home' :
-		echo $twig->render('home.twig');
+		$controller->home('home.twig');
 		break;
 
 	case 'contact' :
@@ -35,15 +38,16 @@ switch ($page){
 	break;
 
 	case 'singlepost' :
-		echo $twig->render('singlePost.twig', ['singlePost' => $posts->getSinglePost($_GET['id'])]);
+		$controller->showPost($_GET['id'], 'singlePost.twig');
 		break;
             
         case 'editpost' :
-	echo $twig->render('editPost.twig', ['editPost' => $posts->getSinglePost($_GET['id'])]);
+        $controller->showPost($_GET['id'],'editpost.twig');
 	break;
     
         case 'add-post' :
-        echo $twig->render('addPost.twig');
+        $controller->addPostView('addPost.twig');
+        $controller->addNewPost();
 	break;
 
 	default: 

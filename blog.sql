@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Ven 28 Avril 2017 à 15:28
+-- Généré le :  Ven 28 Avril 2017 à 23:18
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -26,15 +26,15 @@ CREATE TABLE `posts` (
   `date` datetime DEFAULT NULL,
   `content` longtext,
   `author` varchar(50) DEFAULT NULL,
-  `callToRead` varchar(200) DEFAULT NULL,
+  `header` varchar(200) DEFAULT NULL,
   `featuredImg` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `date`, `content`, `author`, `callToRead`, `featuredImg`) VALUES
+INSERT INTO `posts` (`id`, `title`, `date`, `content`, `author`, `header`, `featuredImg`) VALUES
 (1, 'Ham hock leberkas meatloaf kielbasa doner', '2017-04-20 13:19:37', 'Ham hock leberkas meatloaf kielbasa doner, capicola strip steak rump chicken frankfurter drumstick chuck sirloin salami turducken. Landjaeger shankle pork meatloaf. Ground round drumstick cow shank. Hamburger ball tip kevin shank meatball pork landjaeger ham hock. Swine kielbasa burgdoggen salami pork. Andouille pork loin spare ribs meatloaf, pork chop jerky capicola shoulder pastrami short loin sausage.\n\nDoner swine ball tip, drumstick chuck rump pancetta tri-tip short loin tenderloin. Sausage picanha ham andouille hamburger pork belly cow corned beef. Venison swine kielbasa cow leberkas jowl. Shankle kielbasa shank leberkas pork belly alcatra short loin kevin andouille prosciutto shoulder tail. Sirloin andouille ground round pork chop, jowl swine pancetta alcatra. Chuck burgdoggen tenderloin chicken, cow meatloaf leberkas prosciutto doner strip steak cupim tail corned beef swine.', 'dave.lane', 'Venison turkey spare ribs meatloaf ham, corned beef brisket filet mignon pork shankle porchetta doner cupim ribeye. Filet mignon ham ball tip, shoulder short loin salami t-bone.', 'img/code.png'),
 (2, 'Turkey bresaola pork chop', '2017-04-20 16:15:00', ' Jowl bacon spare ribs cupim tongue sausage flank. Chicken leberkas fatback brisket tenderloin ham bacon sirloin kielbasa pork prosciutto shank venison alcatra.\n\nTurkey bresaola pork chop chicken pork, ham jowl strip steak salami jerky kielbasa rump pig beef. Rump drumstick frankfurter landjaeger doner ham shank. Pastrami shank short loin cow hamburger. Pastrami chuck burgdoggen, ham hock turkey beef meatball andouille venison.\n\nShoulder biltong meatball sausage. Sausage jerky ham, jowl shoulder pancetta filet mignon pork belly burgdoggen rump tenderloin ribeye turkey. Strip steak bresaola capicola pork belly pork chop. Tail sausage filet mignon porchetta, pastrami andouille pig chicken strip steak rump burgdoggen jerky landjaeger. Spare ribs salami filet mignon ham short loin. Corned beef frankfurter pancetta, pork chop shankle alcatra burgdoggen bacon filet mignon tenderloin chicken.\n\nSpare ribs chuck swine doner. Boudin shankle pork pork chop tail. Drumstick ball tip flank pastrami sausage, shank short loin. Ham hock strip steak shank pork belly pork chop. Kielbasa rump tri-tip kevin ribeye boudin filet mignon alcatra picanha corned beef bacon. Venison leberkas tail burgdoggen swine ham hock bresaola hamburger frankfurter landjaeger. Pork beef ribs shankle meatloaf bresaola frankfurter rump pork belly kielbasa.\n\nSalami pig t-bone, tongue beef picanha meatloaf short loin. Pork porchetta pancetta, beef jowl leberkas shank boudin. Doner bresaola corned beef rump andouille kevin tail prosciutto filet mignon. Biltong turducken t-bone capicola burgdoggen doner pancetta boudin salami strip steak meatball cow.', 'dave.lane', 'Pig tongue meatloaf tenderloin leberkas jerky ball tip sirloin chicken. T-bone drumstick shank burgdoggen, ground round fatback salami alcatra jowl tongue boudin cupim strip steak. ', 'img/psg.jpg'),
 (3, 'Bacon ipsum dolor amet', '2017-04-20 15:45:00', 'Flank pork leberkas pancetta tail biltong beef pork loin sausage shank bacon jerky kevin landjaeger.\n\nHam hock biltong pork belly pork cupim prosciutto alcatra jowl drumstick beef kevin ball tip pancetta. Boudin salami tri-tip, doner hamburger t-bone meatball andouille turducken ham hock. Jowl filet mignon tenderloin shank. Leberkas kevin corned beef shankle filet mignon pork loin turkey prosciutto hamburger capicola landjaeger pig ham jerky ham hock. Pancetta rump tail boudin chicken tongue porchetta tri-tip drumstick beef ribs cow shoulder bacon. Beef pork loin bacon filet mignon leberkas. Ground round pork loin turducken, sausage pancetta jerky biltong ribeye bresaola salami alcatra pork tail.\n\nBacon doner cupim strip steak frankfurter pastrami flank rump shankle venison ball tip turducken pork loin sausage. Andouille frankfurter meatloaf fatback ground round, kielbasa burgdoggen. Meatloaf biltong ground round meatball prosciutto, spare ribs rump. T-bone bacon salami fatback shankle chuck jerky boudin porchetta. Beef ribs pig ground round pork tenderloin biltong salami pastrami jerky shoulder shankle andouille swine.\n\nPork belly sausage swine fatback pancetta picanha strip steak cow. Biltong rump ham hock frankfurter strip steak pork chop turducken shank meatball tenderloin. Meatball bresaola pancetta, rump shank prosciutto beef tenderloin pork chop corned beef. Biltong jowl tail hamburger tenderloin.\n\nFatback tongue ribeye, burgdoggen landjaeger cupim bresaola swine andouille venison shankle chuck. Andouille swine shoulder spare ribs sirloin biltong jowl short loin prosciutto. Ham hock ribeye pancetta doner boudin hamburger. Jerky ham hock frankfurter capicola fatback burgdoggen, alcatra meatball porchetta pig kielbasa sausage boudin swine. Fatback leberkas chicken, cupim jerky short ribs salami. Brisket tongue tenderloin, shankle prosciutto jerky chuck corned beef swine. Kielbasa capicola frankfurter jerky corned beef shank short loin sausage tail tenderloin alcatra porchetta beef ribs burgdoggen spare ribs.', 'dave.lane', 'Pork ham hock venison picanha. Prosciutto chuck short ribs fatback pork belly chicken beef ribs porchetta pancetta capicola beef.', 'img/family.jpg'),
@@ -60,4 +60,4 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT pour la table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;

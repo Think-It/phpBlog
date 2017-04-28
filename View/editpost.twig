@@ -6,16 +6,16 @@
 {% endblock %}
 
 {% block content %}
-{% for editThisPost in editPost %}
+{% for editThisPost in singlePost %}
     
     <h1>Edit post</h1><br>
 
-<form action="update()" method="post">
+<form action="index.php?p=editpost&id={{ editThisPost.id}}" method="post">
 	{{ form.input('title', 'Title', editThisPost.title )  }}
-        {{ form.textarea('callToRead', 'Call to read', 03, editThisPost.callToRead) }}
+        {{ form.textarea('header', 'Header', 03, editThisPost.header) }}
 	{{ form.input('author', 'Author', editThisPost.author) }}
         {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
-        {{ form.file('image', 'Sekect a featured image', editThisPost.featuredImg)}}
+        {{ form.file('image', 'Select a featured image', editThisPost.featuredImg)}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-info">Update this post</button>
 	</div>

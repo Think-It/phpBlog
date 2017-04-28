@@ -10,13 +10,13 @@ class PostsManager
 
   public function add(Post $post)
   {
-    $q = $this->_db->prepare('INSERT INTO posts(title, content, date, author, callToRead, featuredImg) VALUES(:title, :content, :date, :author, :callToRead, :featuredImg)');
+    $q = $this->_db->prepare('INSERT INTO posts(title, content, date, author, header, featuredImg) VALUES(:title, :content, :date, :author, :header, :featuredImg)');
 
     $q->bindValue(':title', $post->title());
     $q->bindValue(':content', $post->content(), PDO::PARAM_INT);
     $q->bindValue(':date', $post->date(), PDO::PARAM_INT);
     $q->bindValue(':author', $post->author(), PDO::PARAM_INT);
-    $q->bindValue(':callToRead', $post->callToRead(), PDO::PARAM_INT);
+    $q->bindValue(':header', $post->header(), PDO::PARAM_INT);
     $q->bindValue(':featuredImg', $post->featuredImg(), PDO::PARAM_INT);
 
     $q->execute();
@@ -57,12 +57,12 @@ class PostsManager
 
   public function update(Post $post)
   {
-    $q = $this->_db->prepare('UPDATE posts SET title = :title, content = :content, author = :author, date = :date, callToRead = :callToRead WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE posts SET title = :title, content = :content, author = :author, date = :date, header = :header WHERE id = :id');
 
     $q->bindValue(':title', $post->title(), PDO::PARAM_INT);
     $q->bindValue(':content', $post->content(), PDO::PARAM_INT);
     $q->bindValue(':author', $post->author(), PDO::PARAM_INT);
-    $q->bindValue(':callToRead', $post->callToRead(), PDO::PARAM_INT);
+    $q->bindValue(':header', $post->header(), PDO::PARAM_INT);
     $q->bindValue(':date', $post->date(), PDO::PARAM_INT);
     $q->bindValue(':featuredImg', $post->featuredImg(), PDO::PARAM_INT);
     $q->bindValue(':id', $post->id(), PDO::PARAM_INT);
