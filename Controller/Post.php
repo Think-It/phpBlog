@@ -1,5 +1,5 @@
 <?php
-Class Article{
+Class Post{
 
     private $_id;
     private $_title;

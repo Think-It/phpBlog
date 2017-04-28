@@ -1,11 +1,11 @@
 {% extends 'layout.twig' %}
 {% import 'form.twig' as form %}
 {% block head %}
-	<title>Add an article</title>
+	<title>Add a post</title>
 {% endblock %}
 
 {% block content %}
-    <h1>Add an article</h1><br>
+    <h1>Add a post</h1><br>
 
 <form action="" method="post">
 	{{ form.input('title', 'Title')  }}
@@ -14,7 +14,7 @@
 	{{ form.textarea('content', 'Content', 30) }}
         {{ form.file('image', 'Select a featured image')}}
         <div class="form-group"><br>
-		<button type="submit" class="btn btn-success">Post the article</button>
+		<button type="submit" class="btn btn-success">Publish the post</button>
 	</div>
 </form>
         

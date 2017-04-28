@@ -2,22 +2,22 @@
 {% import 'form.twig' as form %}
 
 {% block head %}
-	<title>Edit article</title>
+	<title>Edit post</title>
 {% endblock %}
 
 {% block content %}
-{% for editPosts in editPost %}
+{% for editThisPost in editPost %}
     
     <h1>Edit post</h1><br>
 
 <form action="update()" method="post">
-	{{ form.input('title', 'Title', editPosts.title )  }}
-        {{ form.textarea('callToRead', 'Call to read', 03, editPosts.callToRead) }}
-	{{ form.input('author', 'Author', editPosts.author) }}
-        {{ form.textarea('content', 'Content', 30, editPosts.content) }}
-        {{ form.file('image', 'Sekect a featured image', editPosts.featuredImg)}}
+	{{ form.input('title', 'Title', editThisPost.title )  }}
+        {{ form.textarea('callToRead', 'Call to read', 03, editThisPost.callToRead) }}
+	{{ form.input('author', 'Author', editThisPost.author) }}
+        {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
+        {{ form.file('image', 'Sekect a featured image', editThisPost.featuredImg)}}
         <div class="form-group"><br>
-		<button type="submit" class="btn btn-info">Update article</button>
+		<button type="submit" class="btn btn-info">Update this post</button>
 	</div>
 </form>
 {% endfor %}

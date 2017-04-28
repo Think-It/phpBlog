@@ -1,10 +1,10 @@
 <?php
 require 'vendor/autoload.php';
-require 'Controller/Article.php';
-require 'Controller/ArticlesManager.php';
+require 'Controller/Post.php';
+require 'Controller/PostsManager.php';
 
 $db = new PDO("mysql:host=localhost; dbname=blogtwig; charset=UTF8", 'root', 'root');
-$articles = new ArticlesManager($db);
+$posts = new PostsManager($db);
 
 // Routing
 $page = "home";
@@ -31,19 +31,19 @@ switch ($page){
 		break;
 	
 	case 'blog':
-	echo $twig->render('blog.twig', ['listArticles' => $articles->getAllArticles()]);
+	echo $twig->render('allPosts.twig', ['allPosts' => $posts->getAllPosts()]);
 	break;
 
-	case 'single' :
-		echo $twig->render('single.twig', ['particularArticle' => $articles->getSingleArticle($_GET['id'])]);
+	case 'singlepost' :
+		echo $twig->render('singlePost.twig', ['singlePost' => $posts->getSinglePost($_GET['id'])]);
 		break;
             
         case 'editpost' :
-	echo $twig->render('editpost.twig', ['editPost' => $articles->getSingleArticle($_GET['id'])]);
+	echo $twig->render('editPost.twig', ['editPost' => $posts->getSinglePost($_GET['id'])]);
 	break;
     
-        case 'add-article' :
-        echo $twig->render('addArticle.twig');
+        case 'add-post' :
+        echo $twig->render('addPost.twig');
 	break;
 
 	default: 
