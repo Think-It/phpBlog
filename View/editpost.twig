@@ -1,23 +1,24 @@
 {% extends 'layout.twig' %}
 {% import 'form.twig' as form %}
-{% for editPosts in editPost %}
+
 {% block head %}
 	<title>Edit article</title>
 {% endblock %}
 
 {% block content %}
+{% for editPosts in editPost %}
+    
     <h1>Edit post</h1><br>
 
-<form action="" method="post">
-	{{ form.input('title', 'Title', '{{ editPosts.title }}' )  }}
-        {{ form.textarea('callToRead', 'Call to read', '{{ editPosts.callToRead }}') }}
-	{{ form.input('author', 'Author', '{{ editPosts.author }}') }}
-	{{ form.textarea('content', 'Content', '{{ editPosts.content }}') }}
-        {{ form.file('image', 'Browse featured image', '{{ editPosts.featuredImg') }}
+<form action="update()" method="post">
+	{{ form.input('title', 'Title', editPosts.title )  }}
+        {{ form.textarea('callToRead', 'Call to read', 03, editPosts.callToRead) }}
+	{{ form.input('author', 'Author', editPosts.author) }}
+        {{ form.textarea('content', 'Content', 30, editPosts.content) }}
+        {{ form.file('image', 'Sekect a featured image', editPosts.featuredImg)}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-info">Update article</button>
 	</div>
 </form>
-
-{% endblock	%}
 {% endfor %}
+{% endblock %}

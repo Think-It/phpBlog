@@ -39,7 +39,7 @@ switch ($page){
 		break;
             
         case 'editpost' :
-	echo $twig->render('editpost.twig', ['editPost' => var_dump($articles->getSingleArticle($_GET['id']))]);
+	echo $twig->render('editpost.twig', ['editPost' => $articles->getSingleArticle($_GET['id'])]);
 	break;
     
         case 'add-article' :

@@ -5,10 +5,10 @@
 	</div>
 {% endmacro %}}
 
-{% macro textarea(name, label, value) %}
+{% macro textarea(name, label, rows, value) %}
 	<div class="form-group">
 		<label for="{{ name }}">{{ label }}</label>
-		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}">{{ value|e }}</textarea>
+		<textarea type="text" class="form-control" rows="{{ rows|default(40) }}" id="{{ name }}" name="{{ name }}">{{ value|e }}</textarea>
 	</div>
                 
 {% endmacro %}}

@@ -9,10 +9,10 @@
 
 <form action="" method="post">
 	{{ form.input('title', 'Title')  }}
-        {{ form.textarea('callToRead', 'Call to read') }}
+        {{ form.textarea('callToRead', 'Call to read', 03) }}
 	{{ form.input('author', 'Author') }}
-	{{ form.textarea('content', 'Content') }}
-        {{ form.file('image', 'Browse featured image')}}
+	{{ form.textarea('content', 'Content', 30) }}
+        {{ form.file('image', 'Select a featured image')}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-success">Post the article</button>
 	</div>
