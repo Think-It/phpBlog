@@ -5,6 +5,10 @@ p{
     color:#8d8f92;
 }
 
+.calltoread{
+    color:#333;
+}
+
 .navbar li {
     font-family: 'Kreon', serif;
     font-size:1.3em;
@@ -71,6 +75,12 @@ border-bottom: dashed 0.5px #c9c9c9;
 }
 
 .mybutton:focus{
+    background-color:#fff;
+    color:#14162e;
+    border:none;
+}
+
+.mybutton:active:focus{
     background-color:#fff;
     color:#14162e;
     border:none;
