@@ -10,13 +10,14 @@ class ArticlesManager
 
   public function add(Article $article)
   {
-    $q = $this->_db->prepare('INSERT INTO articles(title, content, date, author, callToRead) VALUES(:title, :content, :date, :author, :callToRead)');
+    $q = $this->_db->prepare('INSERT INTO articles(title, content, date, author, callToRead, featuredImg) VALUES(:title, :content, :date, :author, :callToRead, :featuredImg)');
 
     $q->bindValue(':title', $article->title());
     $q->bindValue(':content', $article->content(), PDO::PARAM_INT);
     $q->bindValue(':date', $article->date(), PDO::PARAM_INT);
     $q->bindValue(':author', $article->author(), PDO::PARAM_INT);
     $q->bindValue(':callToRead', $article->callToRead(), PDO::PARAM_INT);
+    $q->bindValue(':featuredImg', $article->featuredImg(), PDO::PARAM_INT);
 
     $q->execute();
   }
@@ -62,7 +63,8 @@ class ArticlesManager
     $q->bindValue(':content', $article->content(), PDO::PARAM_INT);
     $q->bindValue(':author', $article->author(), PDO::PARAM_INT);
     $q->bindValue(':callToRead', $article->callToRead(), PDO::PARAM_INT);
-    $q->bindValue(':date', $article->date(), PDO::PARAM_INT);    
+    $q->bindValue(':date', $article->date(), PDO::PARAM_INT);
+     $q->bindValue(':featuredImg', $article->featuredImg(), PDO::PARAM_INT);
     $q->bindValue(':id', $article->id(), PDO::PARAM_INT);
 
     $q->execute();

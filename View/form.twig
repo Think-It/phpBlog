@@ -1,22 +1,22 @@
-{% macro input(name, label) %}
+{% macro input(name, label, value) %}
 	<div class="form-group">
 		<label for="{{ name }}">{{ label }}</label>
-		<input type="text" class="form-control" id="{{ name }}" name="{{ name }}">
+		<input type="text" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value|e }}">
 	</div>
 {% endmacro %}}
 
-{% macro textarea(name, label) %}
+{% macro textarea(name, label, value) %}
 	<div class="form-group">
 		<label for="{{ name }}">{{ label }}</label>
-		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}"></textarea>
+		<textarea type="text" class="form-control" id="{{ name }}" name="{{ name }}">{{ value|e }}</textarea>
 	</div>
                 
 {% endmacro %}}
 
-{% macro file(name, label) %}
+{% macro file(name, label, value) %}
 	<div class="form-group">
 		<label for="{{ name }}">{{ label }}</label>
-		<input type="file" class="form-control" id="{{ name }}" name="{{ name }}"></textarea>
+		<input type="file" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value|e }}">
 	</div>
                 
 {% endmacro %}}
