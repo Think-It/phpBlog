@@ -90,6 +90,14 @@ border-bottom: dashed 0.5px #c9c9c9;
     border:1px solid #e6eef0;
 }
 
+.socialnet{
+    color: #557982;
+}
+
+.socialnet:hover{
+    color: #14162e;
+}
+
 .img-responsive nathbull {
     margin: 0 auto  ;
 }
