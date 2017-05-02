@@ -27,6 +27,7 @@ class PostsManager
     $this->_db->exec('DELETE FROM posts WHERE id = '.$post->id());
   }
   
+  
    public function getSinglePost($id)
   {
     $articles = [];
@@ -57,17 +58,23 @@ class PostsManager
 
   public function update(Post $post)
   {
-    $q = $this->_db->prepare('UPDATE posts SET title = :title, content = :content, author = :author, date = :date, header = :header WHERE id = :id');
-
-    $q->bindValue(':title', $post->title(), PDO::PARAM_INT);
-    $q->bindValue(':content', $post->content(), PDO::PARAM_INT);
-    $q->bindValue(':author', $post->author(), PDO::PARAM_INT);
-    $q->bindValue(':header', $post->header(), PDO::PARAM_INT);
-    $q->bindValue(':date', $post->date(), PDO::PARAM_INT);
-    $q->bindValue(':featuredImg', $post->featuredImg(), PDO::PARAM_INT);
+    try {
+    $q = $this->_db->prepare('UPDATE posts SET title = :title, featuredImg = :featuredImg, content = :content, author = :author, date = :date, header = :header WHERE id = :id');
+    
     $q->bindValue(':id', $post->id(), PDO::PARAM_INT);
-
+    $q->bindValue(':title', $post->title(), PDO::PARAM_STR );
+    $q->bindValue(':content', $post->content(), PDO::PARAM_STR );
+    $q->bindValue(':author', $post->author(), PDO::PARAM_STR );
+    $q->bindValue(':header', $post->header(), PDO::PARAM_STR );
+    $q->bindValue(':date', $post->date(), PDO::PARAM_STR );
+    $q->bindValue(':featuredImg', $post->featuredImg(), PDO::PARAM_STR);
+    
+    
     $q->execute();
+    
+    } catch (Exception $e) {
+     echo "Problem happened: " . $e->getMessage();
+    }
   }
 
   public function setDb(PDO $db)

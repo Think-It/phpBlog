@@ -26,23 +26,25 @@ $controller = new Controller($twig, $db);
 switch ($page){
 
 	case 'home' :
-		$controller->home('home.twig');
-		break;
+	$controller->home('home.twig');
+	break;
 
 	case 'contact' :
-		echo $twig->render('contact.twig');
-		break;
+	echo $twig->render('contact.twig');
+	break;
 	
 	case 'blog':
 	echo $twig->render('allPosts.twig', ['allPosts' => $posts->getAllPosts()]);
 	break;
 
 	case 'singlepost' :
-		$controller->showPost($_GET['id'], 'singlePost.twig');
-		break;
+        $controller->showPost($_GET['id'], 'singlePost.twig');
+        break;
             
         case 'editpost' :
         $controller->showPost($_GET['id'],'editpost.twig');
+        $controller->updatePost();
+        $controller->deletePost();
 	break;
     
         case 'add-post' :

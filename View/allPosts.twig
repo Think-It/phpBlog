@@ -17,8 +17,8 @@
                               <a href="index.php?p=singlepost&id={{posts.id}}"><img class="img-responsive" src="{{ posts.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="..."></a>
                             <div class="caption">
                                 <a style="text-decoration:none; color:inherit;"href="index.php?p=singlepost&id={{posts.id}}"><h3 class="card-title">{{ posts.title }}</h3></a>
-                              <p class="lead">By <em>{{ posts.author }}</em></p>
-                              <p><span class="glyphicon glyphicon-time"></span> Posted on {{ posts.date | date("d/m/Y H:i") }}<p>
+                              <p class="lead">By <em class="author">{{ posts.author }}</em></p>
+                              <p><span class="glyphicon glyphicon-time"></span> Posted on {{ posts.date | date("d/m/Y \\a\\t H:i") }}<p>
                               <hr>
                               <p>{{ posts.header}}</p><br>
                               <p><a href="index.php?p=singlepost&id={{posts.id}}" class="btn btn-primary mybutton" role="button">Read this post</a></p>

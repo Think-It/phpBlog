@@ -10,14 +10,16 @@
     
     <h1>Edit post</h1><br>
 
-<form action="index.php?p=editpost&id={{ editThisPost.id}}" method="post">
+<form action="" method="post" enctype="multipart/form-data">
+        {{ form.hidden('id', 'ID', editThisPost.id )  }}
 	{{ form.input('title', 'Title', editThisPost.title )  }}
         {{ form.textarea('header', 'Header', 03, editThisPost.header) }}
 	{{ form.input('author', 'Author', editThisPost.author) }}
         {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
-        {{ form.file('image', 'Select a featured image', editThisPost.featuredImg)}}
+        {{ form.file('image', 'Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
         <div class="form-group"><br>
-		<button type="submit" class="btn btn-info">Update this post</button>
+		<button type="submit" class="btn btn-info" name="update">Update this post</button>
+                <button type="submit" class="btn btn-danger" name="delete">Delete this post</button>
 	</div>
 </form>
 {% endfor %}

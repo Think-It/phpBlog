@@ -6,13 +6,13 @@
 
 {% block content %}
     <h1>Add a post</h1><br>
-<form action="index.php?p=add-post" method="post">
+<form action="index.php?p=blog" method="post" enctype="multipart/form-data">
 
 	{{ form.input('title', 'Title')  }}
         {{ form.textarea('header', 'Header', 03) }}
 	{{ form.input('author', 'Author') }}
 	{{ form.textarea('content', 'Content', 30) }}
-        {{ form.file('image', 'Select a featured image')}}
+        {{ form.file('image', 'Select a featured image (max size 4Mo)')}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-success" name="publish">Publish the post</button>
 	</div>

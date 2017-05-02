@@ -5,8 +5,8 @@
         <div class="container">
             <div class="row">
                 <h2>{{ thisSinglePost.title}}</h2>
-                <p class="lead">By <em>{{ thisSinglePost.author }}</em></p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ thisSinglePost.date | date("d/m/Y H:i") }}</p>
+                <p class="lead">By <em class="author">{{ thisSinglePost.author }}</em></p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ thisSinglePost.date | date("d/m/Y \\a\\t H:i") }}</p>
                 <hr>
                 <img class="img-responsive" src="{{ thisSinglePost.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="...">
                 <hr>

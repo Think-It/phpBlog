@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Kreon');
 
+img[src=""]{
+    display:none !important ;
+}
+
 p{
     font-family: 'Droid Sans', sans-serif;
     color:#8d8f92;
+}
+
+.notif{
+    position: absolute;
+    top:0;
 }
 
 .header {
@@ -47,6 +56,10 @@ label{
     margin: 40px 0 20px 0;
 }
 
+.author{
+    color:#4e686f;
+}
+
 .navbar-brand {
   height:110px;
   padding: 0px;
@@ -58,6 +71,7 @@ label{
 
 .presentation{
 border-bottom: dashed 0.5px #c9c9c9;
+margin-bottom: 50px;
 }
 
 .mybutton{
