@@ -29,13 +29,16 @@ class Controller{
         $extensions = array('.png', '.gif', '.jpg', '.jpeg');
         $extension = strrchr($_FILES['image']['name'], '.'); 
         //Security verification
+            if(empty($file)){
+                echo '<div class="alert alert-warning" role="alert">No featured image uploaded ...</div>';
+            } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...';
+                 $erreur = '<div class="alert alert-danger" role="alert">You must upload a file of type png, gif, jpg or jpeg ...</div>';
             }
             if($size>$sizeMax)
             {
-                 $erreur = 'Le fichier est trop gros...';
+                 $erreur = '<div class="alert alert-danger" role="alert">File too large...</div>';
             }
             if(!isset($erreur)) //if no errors, upload
             {
@@ -50,7 +53,7 @@ class Controller{
                  }
                  else //else return false.
                  {
-                      echo 'Echec de l\'upload !';
+                      echo '<div class="alert alert-danger" role="alert">Fail to upload !</div>';
                  }
             }
             else
@@ -58,7 +61,7 @@ class Controller{
                  echo $erreur;
             }
         }        
-        
+        }
         public function addNewPost(){
             $manager = new PostsManager($this->db);
             if(isset($_POST['publish'])){
@@ -95,12 +98,11 @@ class Controller{
                 foreach($required as $field) {
                   if (empty($_POST[$field])) {
                     $error = true;
-                    var_dump($error);
                   }
                 }
 
                 if ($error) {
-                  echo "All fields are required.";
+                 echo '<div class="alert alert-danger" role="alert">Fields "Title", "Header", "Author" and "Content are required and cannot be empty</div>';
                 } else {
                                   $post = new Post([
                                   'id' => $_POST['id'],
@@ -112,14 +114,13 @@ class Controller{
                                   'featuredImg' => $this->uploadImg()
                                 ]);
                                 $manager->update($post);
+                                echo '<div class="alert alert-success" role="alert">The post was updated !</div>';
                                 }
                 }
 
                 }
-            
-            
-        
-            
+
+                
         public function deletePost(){
         $manager = new PostsManager($this->db);
         if(isset($_POST['delete'])){

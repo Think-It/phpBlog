@@ -16,7 +16,7 @@
         {{ form.textarea('header', 'Header', 03, editThisPost.header) }}
 	{{ form.input('author', 'Author', editThisPost.author) }}
         {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
-        {{ form.file('image', 'Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
+        {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-info" name="update">Update this post</button>
                 <button type="submit" class="btn btn-danger" name="delete">Delete this post</button>
