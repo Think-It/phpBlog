@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>Add a post</h1><br>
-<form action="index.php?p=blog" method="post" enctype="multipart/form-data">
+<form action="index.php?p=add-post" method="post" enctype="multipart/form-data">
 
 	{{ form.input('title', 'Title')  }}
         {{ form.textarea('header', 'Header', 03) }}

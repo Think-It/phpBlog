@@ -67,7 +67,7 @@ class Controller{
             if(isset($_POST['publish'])){
                 if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content']))
                 {
-                    echo '<div class="alert alert-danger" role="alert">Something get wrong</div>';
+                    echo '<div class="alert alert-danger" role="alert">Fields "Title", "Header", "Author" and "Content are required and cannot be empty</div>';
                 }
                 else
                 { 
@@ -103,7 +103,7 @@ class Controller{
 
                 if ($error) {
                  echo '<div class="alert alert-danger" role="alert">Fields "Title", "Header", "Author" and "Content are required and cannot be empty</div>';
-                } else {
+                } else {        
                                   $post = new Post([
                                   'id' => $_POST['id'],
                                   'title' => $_POST['title'],
@@ -115,6 +115,7 @@ class Controller{
                                 ]);
                                 $manager->update($post);
                                 echo '<div class="alert alert-success" role="alert">The post was updated !</div>';
+                                echo "<meta http-equiv='refresh' content='0'>";
                                 }
                 }
 
@@ -128,6 +129,8 @@ class Controller{
                               'id' => $_POST['id']
                             ]);
             $manager->delete($post);
+            echo "<meta http-equiv='refresh' content='0'>";
+
             }
         }
 }

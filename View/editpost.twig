@@ -17,9 +17,10 @@
 	{{ form.input('author', 'Author', editThisPost.author) }}
         {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
         {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
+        <img src="{{editThisPost.featuredImg}}" with="150" height="150"/>
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-info" name="update">Update this post</button>
-                <button type="submit" class="btn btn-danger" name="delete">Delete this post</button>
+                <button type="submit" class="btn btn-danger" onclick="return checkDelete()" name="delete">Delete this post</button>
 	</div>
 </form>
 {% endfor %}
