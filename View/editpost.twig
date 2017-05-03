@@ -8,8 +8,16 @@
 {% block content %}
 {% for editThisPost in singlePost %}
     
-    <h1>Edit post</h1><br>
-
+    
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+      <a href="?p=singlepost&id={{editThisPost.id}}" type="button" class="btn btn-default">View this blog post</a>
+    </div>
+  </div>
+    <h1>Edit post - <small>{{editThisPost.title}}</small></h1>
+</div>
+    
 <form action="" method="post" enctype="multipart/form-data">
         {{ form.hidden('id', 'ID', editThisPost.id )  }}
 	{{ form.input('title', 'Title', editThisPost.title )  }}
@@ -18,9 +26,9 @@
         {{ form.textarea('content', 'Content', 30, editThisPost.content) }}
         {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
         <img src="{{editThisPost.featuredImg}}" with="150" height="150"/>
-        <div class="form-group"><br>
+        <div class="form-group"><br><br>
 		<button type="submit" class="btn btn-info" name="update">Update this post</button>
-                <button type="submit" class="btn btn-danger" onclick="return checkDelete()" name="delete">Delete this post</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirmDelete()" name="delete">Delete this post</button>
 	</div>
 </form>
 {% endfor %}
