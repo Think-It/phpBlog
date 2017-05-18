@@ -3,9 +3,13 @@ require 'vendor/autoload.php';
 require 'Model/Post.php';
 require 'Model/PostsManager.php';
 require 'Controller/Controller.php';
+require 'Controller/Mail.php';
+require 'Controller/MailController.php';
 
 $db = new PDO("mysql:host=localhost; dbname=blogtwig; charset=UTF8", 'root', 'root');
 $posts = new PostsManager($db);
+$contact = new MailController();
+
 
 // Routing
 $page = "home";
@@ -27,10 +31,12 @@ switch ($page){
 
 	case 'home' :
 	$controller->home('home.twig');
+        $contact->mailer();
 	break;
 
 	case 'contact' :
 	echo $twig->render('contact.twig');
+        $contact->mailer();
 	break;
 	
 	case 'blog':
