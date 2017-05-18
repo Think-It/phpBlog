@@ -70,8 +70,8 @@ class Mail{
         $email_subject = "Contact form : New message from " . $this->name;
 
         $email_message = "Name: ".$this->name."\n";
-        $email_message .= "Email: ".$this->mail."\n";
-        $email_message .= "Message: ".$this->message."\n";
+        $email_message .= "Email: ".$this->mail."\n \n";
+        $email_message .= "Message: \n".$this->message."\n";
 
         $headers = 'From: '.$this->mail."\r\n".
         'Reply-To: '.$this->mail."\r\n" .
