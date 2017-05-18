@@ -27,26 +27,12 @@ class PostsManager
     $this->_db->exec('DELETE FROM posts WHERE id = '.$post->id());
   }
   
-  
+
    public function getSinglePost($id)
-  {
-    $articles = [];
-
-    $q = $this->_db->query('SELECT * FROM posts  WHERE id = '.$id );
-
-    while ($datas = $q->fetch(PDO::FETCH_ASSOC))
-    {
-      $articles[] = new Post($datas);
-    }
-
-    return $articles;
-  }
-
-  public function getAllPosts()
   {
     $post = [];
 
-    $q = $this->_db->query('SELECT * FROM posts ORDER BY date DESC');
+    $q = $this->_db->query('SELECT * FROM posts  WHERE id = '.$id );
 
     while ($datas = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -54,6 +40,38 @@ class PostsManager
     }
 
     return $post;
+  }
+
+  public function getAllPosts()
+  {
+      if(isset($_GET['p']) && (!isset($_GET['page']))){
+          //die("ici");
+          $currentPage =  1;
+      }
+      else {
+          $currentPage = $_GET['page'];
+      }
+    $q= $this->_db->query('SELECT COUNT(id) AS numberposts FROM posts');
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+      
+    $number_posts= $data['numberposts'];
+    $perPage = 1;
+    $numberPages = ceil($number_posts/$perPage);
+    //$currentPage = 1;
+
+
+    $q = $this->_db->query("SELECT * FROM posts ORDER BY date DESC LIMIT ".(($currentPage-1)*$perPage).",$perPage");
+
+    while($data = $q->fetch(PDO::FETCH_ASSOC))
+    {
+      $datas[] = new Post($data);
+    }
+              for($i=1;$i<=$numberPages;$i++){
+        echo "<div class='container'><a href=\"index.php?p=blog&page=$i\">$i</a></div>";
+    }
+
+    return $datas;
+
   }
 
   public function update(Post $post)

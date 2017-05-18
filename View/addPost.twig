@@ -5,7 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Add a post</h1><br>
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+      <a href="?p=blog" type="button" class="btn btn-default">View all blog posts</a>
+    </div>
+  </div>
+    <h1>Add post</h1>
+</div>
 <form action="index.php?p=add-post" method="post" enctype="multipart/form-data">
 
 	{{ form.input('title', 'Title')  }}
