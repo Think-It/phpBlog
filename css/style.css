@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Kreon');
 
+
+.alert{
+    position:absolute !important;
+    top:0 !important;
+    z-index: 1000 !important;
+    width:100%
+}
+
 img[src=""]{
     display:none !important ;
 }

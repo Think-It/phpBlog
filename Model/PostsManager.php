@@ -55,7 +55,7 @@ class PostsManager
     $data = $q->fetch(PDO::FETCH_ASSOC);
       
     $number_posts= $data['numberposts'];
-    $perPage = 1;
+    $perPage = 3;
     $numberPages = ceil($number_posts/$perPage);
     //$currentPage = 1;
 

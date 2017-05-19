@@ -1,4 +1,5 @@
 <?php
+require_once 'Session.php';
 class Controller{
     
         public function __construct(Twig_Environment $twig, $db){
@@ -30,15 +31,22 @@ class Controller{
         $extension = strrchr($_FILES['image']['name'], '.'); 
         //Security verification
             if(empty($file)){
-                echo '<div class="alert alert-warning" role="alert">No featured image uploaded ...</div>';
+                $session = new Session();
+                $session->setFlash("No featured image uploaded ...", "warning");
+                $session->flash();
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $erreur = '<div class="alert alert-danger" role="alert">You must upload a file of type png, gif, jpg or jpeg ...</div>';
+                 $erreur = new Session();
+                 $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
+                 $erreur->flash();
+                 
             }
             if($size>$sizeMax)
             {
-                 $erreur = '<div class="alert alert-danger" role="alert">File too large...</div>';
+                 $erreur = new Session();
+                 $erreur->setFlash("File too large...");
+                 $erreur->flash();
             }
             if(!isset($erreur)) //if no errors, upload
             {
@@ -53,7 +61,9 @@ class Controller{
                  }
                  else //else return false.
                  {
-                      echo '<div class="alert alert-danger" role="alert">Fail to upload !</div>';
+                      $erreur = new Session();
+                      $erreur->setFlash("Fail to upload !");
+                      $erreur->flash();
                  }
             }
             else
@@ -67,7 +77,9 @@ class Controller{
             if(isset($_POST['publish'])){
                 if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content']))
                 {
-                    echo '<div class="alert alert-danger" role="alert">Fields "Title", "Header", "Author" and "Content are required and cannot be empty</div>';
+                      $session = new Session();
+                      $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
+                      $session->flash();
                 }
                 else
                 { 
@@ -80,8 +92,10 @@ class Controller{
                                 'featuredImg' => $this->uploadImg()
                                 ]); 
                     $manager->add($newpost); // Create a new post
-
-                    echo '<div class="alert alert-success" role="alert">The post was published !</div>';
+                    
+                      $session = new Session();
+                      $session->setFlash('The post was published !', 'success');
+                      $session->flash();
                 }
             }
         }
@@ -102,7 +116,9 @@ class Controller{
                 }
 
                 if ($error) {
-                 echo '<div class="alert alert-danger" role="alert">Fields "Title", "Header", "Author" and "Content are required and cannot be empty</div>';
+                      $session = new Session();
+                      $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
+                      $session->flash();
                 } else {        
                                   $post = new Post([
                                   'id' => $_POST['id'],
@@ -114,7 +130,9 @@ class Controller{
                                   'featuredImg' => $this->uploadImg()
                                 ]);
                                 $manager->update($post);
-                                echo '<div class="alert alert-success" role="alert">The post was updated !</div>';
+                                $session = new Session();
+                                $session->setFlash('The post has been updated !', 'success');
+                                $session->flash();
                                 echo "<meta http-equiv='refresh' content='0'>";
                                 }
                 }
@@ -129,6 +147,9 @@ class Controller{
                               'id' => $_POST['id']
                             ]);
             $manager->delete($post);
+            $session = new Session();
+            $session->setFlash('The post has been deleted !', 'info');
+            $session->flash();            
             echo "<meta http-equiv='refresh' content='0'>";
 
             }

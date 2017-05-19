@@ -10,14 +10,21 @@
  *
  * @author nathanmeyer
  */
-include_once('Mail.php');
+
+include_once('Model/Mail.php');
+require_once 'Session.php';
+
+
+
 
 class MailController {
     public function mailer(){
         if(isset($_POST['sendEmail'])){
             if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message']) || (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false))
                 {
-                    echo '<div class="alert alert-danger" role="alert">Empty fields or invalid email, please try again</div>';
+                $session = new Session();
+                $session->setFlash("Empty fields or invalid email address, pleasy try again");
+                $session->flash();
                 }else{
         $datas = new Mail([
         'Name' => $_POST['name'],
@@ -25,7 +32,9 @@ class MailController {
         'Message' => $_POST['message']
         ]);
         $datas->sendMail();
-        echo '<div class="alert alert-success" role="alert">Your message has been sent ! Thanks</div>';
+        $session = new Session();
+        $session->setFlash('Your message has been sent ! Thanks', 'success');
+        $session->flash();
         }
     }
 }}
