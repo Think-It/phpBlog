@@ -66,18 +66,19 @@ class Mail{
     
     public function sendMail(){
         
-        $email_to = "nathan.meyer-pro@live.fr";   
-        $email_subject = "Contact form : New message from " . $this->name;
+        $emailTo = "nathan.meyer-pro@live.fr";   
+        $emailSubject = "Contact form : New message from " . $this->name;
 
-        $email_message = "Name: ".$this->name."\n";
-        $email_message .= "Email: ".$this->mail."\n \n";
-        $email_message .= "Message: \n".$this->message."\n";
+        $emailMessage = "Name: ".$this->name."\n";
+        $emailMessage .= "Email: ".$this->mail."\n \n";
+        $emailMessage .= "Message: \n".$this->message."\n";
 
         $headers = 'From: '.$this->mail."\r\n".
+        $headers = 'Content-Type: text/plain; charset=utf-8';
         'Reply-To: '.$this->mail."\r\n" .
         'X-Mailer: PHP/' . phpversion();
 
-        mail($email_to, $email_subject, $email_message, $headers);
+        mail($emailTo, $emailSubject, $emailMessage, $headers);
     }
     
 }
