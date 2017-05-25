@@ -15,8 +15,6 @@ include_once('Model/Mail.php');
 require_once 'Session.php';
 
 
-
-
 class MailController {
     public function mailer(){
         if(isset($_POST['sendEmail'])){

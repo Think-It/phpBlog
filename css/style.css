@@ -2,10 +2,11 @@
 
 
 .alert{
-    position:absolute !important;
-    top:0 !important;
+    position: absolute !important;
+    float: left !important;
+    top: 0 !important;
     z-index: 1000 !important;
-    width:100%
+    width:100% !important;
 }
 
 img[src=""]{

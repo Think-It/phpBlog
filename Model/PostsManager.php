@@ -66,9 +66,11 @@ class PostsManager
     {
       $datas[] = new Post($data);
     }
+    echo "<div class='container'><div class='col-md-12 col-sm-12 col-xs-12 col-centered text-center'><ul class='pagination'>";
               for($i=1;$i<=$numberPages;$i++){
-        echo "<div class='container'><a href=\"index.php?p=blog&page=$i\">$i</a></div>";
+        echo "<li><a href=\"index.php?p=blog&page=$i\">$i</a></li>";
     }
+    echo "</ul></div></div>";
 
     return $datas;
 
@@ -95,7 +97,7 @@ class PostsManager
     }
   }
 
-  public function setDb(PDO $db)
+  public function setDb($db)
   {
     $this->_db = $db;
   }

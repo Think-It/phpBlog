@@ -17,7 +17,6 @@
   </div>
     <h1>Edit post - <small>{{editThisPost.title}}</small></h1>
 </div>
-    
 <form action="" method="post" id="editform" enctype="multipart/form-data">
         {{ form.hidden('id', 'ID', editThisPost.id )  }}
 	{{ form.input('title', 'Title', editThisPost.title )  }}

@@ -1,15 +1,11 @@
 <?php
 require 'vendor/autoload.php';
-require 'Model/Post.php';
-require 'Model/PostsManager.php';
-require 'Controller/Controller.php';
-require 'Model/Mail.php';
-require 'Controller/MailController.php';
-require_once 'Controller/Session.php';
+Autoloader::register();
+$db = new SPDO();
 
 $session = new Session();
 
-$db = new PDO("mysql:host=localhost; dbname=blogtwig; charset=UTF8", 'root', 'root');
+
 $posts = new PostsManager($db);
 $contact = new MailController();
 
