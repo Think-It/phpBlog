@@ -92,16 +92,21 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/alertDismiss.js"></script>
-</script><script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=gc73rgtyagvzz1rt6lt1zv6e6ndl33uwy9mf2n9g28wrooq9"></script>
   <script>
-/*tinymce.init({
-  selector: 'textarea',  // change this value according to your HTML
-  plugin: 'a_tinymce_plugin',
-  a_plugin_option: true,
-  a_configuration_option: 400
-});*/
+  tinymce.init({
+    selector: '#content',
+    theme: 'modern',
+    height: 200,
+    branding : false,
+    plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality emoticons template paste textcolor'
+    ],
+    content_css: 'css/style.css',
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
 </script>
-
-
-
-
+</body>
+</html>

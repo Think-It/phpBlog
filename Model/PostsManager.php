@@ -42,10 +42,17 @@ class PostsManager
     return $post;
   }
 
+  public function getImage($id){
+      $post = [];
+      $req = $this->_db->query('SELECT featuredImg FROM posts WHERE id ='.$id);
+      $image = $req->fetch(PDO::FETCH_ASSOC);
+      return $image["featuredImg"];
+  }
+  
   public function getAllPosts()
   {
       if(isset($_GET['p']) && (!isset($_GET['page']))){
-          //die("ici");
+          
           $currentPage =  1;
       }
       else {
@@ -55,8 +62,10 @@ class PostsManager
     $data = $q->fetch(PDO::FETCH_ASSOC);
       
     $number_posts= $data['numberposts'];
-    $perPage = 3;
+    $perPage = 1;
     $numberPages = ceil($number_posts/$perPage);
+    
+    
     //$currentPage = 1;
 
 
@@ -66,6 +75,7 @@ class PostsManager
     {
       $datas[] = new Post($data);
     }
+    
     echo "<div class='container'><div class='col-md-12 col-sm-12 col-xs-12 col-centered text-center'><ul class='pagination'>";
               for($i=1;$i<=$numberPages;$i++){
         echo "<li><a href=\"index.php?p=blog&page=$i\">$i</a></li>";
@@ -75,6 +85,8 @@ class PostsManager
     return $datas;
 
   }
+  
+
 
   public function update(Post $post)
   {

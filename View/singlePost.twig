@@ -10,7 +10,9 @@
                 <hr>
                 <img class="img-responsive" src="{{ thisSinglePost.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="..."><br>
                 <p class="lead header">{{ thisSinglePost.header }}</p>
-                    <p>{{ thisSinglePost.content }}</p>
+                {% autoescape false %}
+                    <div class="content">{{ thisSinglePost.content }}</div>
+                    {% endautoescape %}
                     <a style="margin-top:50px; margin-bottom:50px;"href="index.php?p=editpost&id={{thisSinglePost.id}}" class="btn btn-info" role="button">Edit this post</a>
             </div>
             

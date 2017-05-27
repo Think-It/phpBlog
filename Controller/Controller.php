@@ -1,4 +1,5 @@
 <?php
+//namespace Blogtwig\Controller\Controller;
 require_once 'Session.php';
 class Controller{
     
@@ -34,6 +35,7 @@ class Controller{
                 $session = new Session();
                 $session->setFlash("No featured image uploaded ...", "warning");
                 $session->flash();
+                
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
@@ -100,6 +102,8 @@ class Controller{
             }
         }
         
+       
+        
         
         public function updatePost(){
         $manager = new PostsManager($this->db);
@@ -119,7 +123,11 @@ class Controller{
                       $session = new Session();
                       $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
                       $session->flash();
-                } else {        
+                } else {    
+                   
+                        $uploadImg = $this->uploadImg();
+                        $image = isset($uploadImg) ? $uploadImg : $manager->getImage($_POST['id']);
+                    
                                   $post = new Post([
                                   'id' => $_POST['id'],
                                   'title' => $_POST['title'],
@@ -127,7 +135,7 @@ class Controller{
                                   'author' => $_POST['author'],
                                   'date' => date("Y-m-d H:i:s"),
                                   'content' => $_POST['content'],
-                                  'featuredImg' => $this->uploadImg()
+                                  'featuredImg' => $image
                                 ]);
                                 $manager->update($post);
                                 $session = new Session();

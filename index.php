@@ -6,9 +6,9 @@ $db = new SPDO();
 $session = new Session();
 
 
+
 $posts = new PostsManager($db);
 $contact = new MailController();
-
 
 // Routing
 $page = "home";
@@ -22,7 +22,9 @@ if(isset($_GET['p'])){
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/View');
 $twig = new Twig_Environment($loader, [
 	'cache' => false, // __DIR__ . '/tmp'
+        'debug' => true
 	]);
+$twig->addExtension(new Twig_Extension_Debug());
 
 $controller = new Controller($twig, $db);
 

@@ -11,7 +11,16 @@
 		<textarea type="text" class="form-control" rows="{{ rows|default(40) }}" id="{{ name }}" name="{{ name }}">{{ value|e }}</textarea>
 	</div>
                 
-{% endmacro %}}
+{% endmacro %}
+
+{% macro textareacontent(name, label, rows, value) %}
+	<div class="form-group">
+		<label for="{{ name }}">{{ label }}</label>
+		<textarea type="text" id="content" class="form-control" rows="{{ rows|default(40) }}" id="{{ name }}" name="{{ name }}">{{ value|e }}</textarea>
+	</div>
+                
+{% endmacro %}
+
 
 {% macro file(name, label, value) %}
 	<div class="form-group">
@@ -21,7 +30,7 @@
                 
 {% endmacro %}}
 
-{% macro hidden(name, label, value) %}
+{% macro readonly(name, label, value) %}
 	<div class="form-group">
             <label for="{{ name }}">{{ label }}</label>
 		<input type="text" readonly class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value|e }}">
