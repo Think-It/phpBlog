@@ -7,23 +7,13 @@
 {% block content %}
     
     <h1>All posts</h1><br>
-    <div class="container"><div class="col-md-12 col-sm-12 col-xs-12 col-centered text-center"><ul class="pagination">
-               {% for posts in allPosts %}
-                   {% for i in 1..posts.numberPages %}
-                       {% set i = i + 1 %}
-                       <li><a href="index.php?p=blog&page={{ i }}">{{ i }}</a></li>
-                     {% endfor %}
-                {% endfor %} 
-               
-              
-        </ul></div></div>
             <blockquote>
               <p>A fun reading is as helpful to health as exercising to the body.</p>
               <footer class="hello">Emmanuel Kant <cite title="Source Title">Artist, writer, Philosopher (1724 - 1804)</cite></footer>
             </blockquote>
             <hr>
-                    {% for posts in allPosts %}
-                        
+                    {% for posts in allPosts.records %}
+                        {{ loop.index }}
                         <div class="col-sm-12 col-md-12">
                           <div class="thumbnail">
                               <a href="index.php?p=singlepost&id={{posts.id}}"><img class="img-responsive" src="{{ posts.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="..."></a>
@@ -38,6 +28,11 @@
                           </div>
                         </div>
                     {% endfor %}
+            <div class="container"><div class="col-md-12 col-sm-12 col-xs-12 col-centered text-center"><ul class="pagination">   
+                {% for i in 1.. allPosts.numberPages %}
+                    <li><a href="index.php?p=blog&page{{ loop.index }}">{{ loop.index}}</a></li>
+                {% endfor %}
+            </ul></div></div>  
 
 {% endblock %}
 

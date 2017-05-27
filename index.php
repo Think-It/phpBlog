@@ -6,7 +6,6 @@ $db = new SPDO();
 $session = new Session();
 
 
-
 $posts = new PostsManager($db);
 $contact = new MailController();
 

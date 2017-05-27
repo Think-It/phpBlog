@@ -62,11 +62,9 @@ class PostsManager
     $data = $q->fetch(PDO::FETCH_ASSOC);
       
     $number_posts= $data['numberposts'];
-    $perPage = 1;
+    $perPage = 4;
     $numberPages = ceil($number_posts/$perPage);
-    
-    
-    //$currentPage = 1;
+
 
 
     $q = $this->_db->query("SELECT * FROM posts ORDER BY date DESC LIMIT ".(($currentPage-1)*$perPage).",$perPage");
@@ -76,13 +74,11 @@ class PostsManager
       $datas[] = new Post($data);
     }
     
-    echo "<div class='container'><div class='col-md-12 col-sm-12 col-xs-12 col-centered text-center'><ul class='pagination'>";
-              for($i=1;$i<=$numberPages;$i++){
-        echo "<li><a href=\"index.php?p=blog&page=$i\">$i</a></li>";
-    }
-    echo "</ul></div></div>";
-
-    return $datas;
+    
+        return array(
+        'records'     => $datas,
+        'numberPages' => $numberPages,
+    );
 
   }
   

@@ -1,5 +1,4 @@
 <?php
-//namespace Blogtwig\Controller\Controller;
 require_once 'Session.php';
 class Controller{
     
