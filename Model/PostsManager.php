@@ -62,7 +62,7 @@ class PostsManager
     $data = $q->fetch(PDO::FETCH_ASSOC);
       
     $number_posts= $data['numberposts'];
-    $perPage = 4;
+    $perPage = 3;
     $numberPages = ceil($number_posts/$perPage);
 
 

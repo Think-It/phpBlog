@@ -13,7 +13,7 @@
             </blockquote>
             <hr>
                     {% for posts in allPosts.records %}
-                        {{ loop.index }}
+                    
                         <div class="col-sm-12 col-md-12">
                           <div class="thumbnail">
                               <a href="index.php?p=singlepost&id={{posts.id}}"><img class="img-responsive" src="{{ posts.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="..."></a>
@@ -30,7 +30,7 @@
                     {% endfor %}
             <div class="container"><div class="col-md-12 col-sm-12 col-xs-12 col-centered text-center"><ul class="pagination">   
                 {% for i in 1.. allPosts.numberPages %}
-                    <li><a href="index.php?p=blog&page{{ loop.index }}">{{ loop.index}}</a></li>
+                    <li><a href="index.php?p=blog&page={{ loop.index }}">{{ loop.index}}</a></li>
                 {% endfor %}
             </ul></div></div>  
 
