@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Kreon');
 
+.pagination>li>a{
+    font-family: 'Kreon', serif;
+    
+    
+    color: #14162e;
+    background-color: white;
+    border: 1px solid #e5e6e6;
+}
+
+.pagination>li>a:hover{
+    background-color: rgba(85, 121, 130, 0.5);
+    color: white;
+}
+
 
 .alert{
     position: absolute !important;

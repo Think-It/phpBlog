@@ -30,7 +30,7 @@
                     {% endfor %}
             <div class="container"><div class="col-md-12 col-sm-12 col-xs-12 col-centered text-center"><ul class="pagination">   
                 {% for i in 1.. allPosts.numberPages %}
-                    <li><a href="index.php?p=blog&page={{ loop.index }}">{{ loop.index}}</a></li>
+                    <li class="paginate"><a href="index.php?p=blog&page={{ loop.index }}">{{ loop.index}}</a></li>
                 {% endfor %}
             </ul></div></div>  
 
