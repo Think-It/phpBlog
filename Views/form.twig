@@ -30,10 +30,9 @@
                 
 {% endmacro %}}
 
-{% macro readonly(name, label, value) %}
+{% macro hidden(name, label, value) %}
 	<div class="form-group">
-            <label for="{{ name }}">{{ label }}</label>
-		<input type="text" readonly class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value|e }}">
+		<input type="hidden" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value|e }}">
 	</div>
                 
 {% endmacro %}}

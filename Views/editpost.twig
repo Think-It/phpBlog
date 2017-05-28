@@ -18,14 +18,17 @@
     <h1>Edit post - <small>{{editThisPost.title}}</small></h1>
 </div>
 <form action="" method="post" id="editform" enctype="multipart/form-data">
-        {{ form.readonly('id', 'ID', editThisPost.id )  }}
+        {{ form.hidden('id', 'ID', editThisPost.id )  }}
 	{{ form.input('title', 'Title', editThisPost.title )  }}
         {{ form.textarea('header', 'Header (max 200 characters)', 03, editThisPost.header) }}
         {{ form.textareacontent('content', 'Content', 30, editThisPost.content) }}
         {{ form.input('author', 'Author', editThisPost.author) }}
         {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
-        {{ form.readonly('imagepath', 'Image displayed', editThisPost.featuredImg )  }}
+        {{ form.hidden('imagepath', 'Image', editThisPost.featuredImg )  }}
+        <div class="form-group">
+        <label>Image displayed</label><br>
         <img src="{{editThisPost.featuredImg}}" with="150" height="150"/>
+        </div>
         <div class="form-group"><br><br>
 		<button type="submit" class="btn btn-info" name="update">Update this post</button>
                 <button type="submit"  class="btn btn-danger" name="delete">Delete this post</button>
