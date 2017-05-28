@@ -3,5 +3,12 @@
         "twig/twig": "^2.0",
         "twbs/bootstrap": "^3.3",
         "components/jquery": "^3.2"
+    },
+    
+    "autoload": {
+    	"psr-4":{
+        "natinho68\\" : "app/natinho68" 
+    	}
     }
+    
 }

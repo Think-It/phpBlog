@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block head %}
+	<title>All posts</title>
+{% endblock %}
+
+{% block content %}
+    
+    <h1>All posts</h1><br>
+            <blockquote>
+              <p>A fun reading is as helpful to health as exercising to the body.</p>
+              <footer class="hello">Emmanuel Kant <cite title="Source Title">Artist, writer, Philosopher (1724 - 1804)</cite></footer>
+            </blockquote>
+            <hr>
+                    {% for posts in allPosts.records %}
+                    
+                        <div class="col-sm-12 col-md-12">
+                          <div class="thumbnail">
+                              <a href="index.php?p=singlepost&id={{posts.id}}"><img class="img-responsive" src="{{ posts.featuredImg }}" style="height: 350px;width: 100%; object-fit: cover;" alt="..."></a>
+                            <div class="caption">
+                                <a style="text-decoration:none; color:inherit;"href="index.php?p=singlepost&id={{posts.id}}"><h3 class="card-title">{{ posts.title }}</h3></a>
+                              <p class="lead">By <em class="author">{{ posts.author }}</em></p>
+                              <p><span class="glyphicon glyphicon-time"></span> Posted on {{ posts.date | date("d/m/Y \\a\\t H:i") }}<p>
+                              <hr>
+                              <p>{{ posts.header}}</p><br>
+                              <p><a href="index.php?p=singlepost&id={{posts.id}}" class="btn btn-primary mybutton" role="button">Read this post</a></p>
+                            </div>
+                          </div>
+                        </div>
+                    {% endfor %}
+            <div class="container"><div class="col-md-12 col-sm-12 col-xs-12 col-centered text-center"><ul class="pagination">   
+                {% for i in 1.. allPosts.numberPages %}
+                    <li class="paginate"><a href="index.php?p=blog&page={{ loop.index }}">{{ loop.index}}</a></li>
+                {% endfor %}
+            </ul></div></div>  
+
+{% endblock %}
+

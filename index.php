@@ -1,11 +1,14 @@
 <?php
 require 'vendor/autoload.php';
-Autoloader::register();
+use natinho68\Models\SPDO as SPDO;
+use natinho68\Controllers\Session as Session;
+use natinho68\Models\PostsManager as PostsManager;
+use natinho68\Controllers\MailController as MailController;
+use natinho68\Controllers\Controller as Controller;
+
+
 $db = new SPDO();
-
 $session = new Session();
-
-
 $posts = new PostsManager($db);
 $contact = new MailController();
 
@@ -18,7 +21,7 @@ if(isset($_GET['p'])){
 // Rendu du template
 
 // Chargement des templates dans le dossier templates
-$loader = new Twig_Loader_Filesystem(__DIR__ . '/View');
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/Views');
 $twig = new Twig_Environment($loader, [
 	'cache' => false, // __DIR__ . '/tmp'
         'debug' => true

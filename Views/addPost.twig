@@ -1,0 +1,29 @@
+{% extends 'layout.twig' %}
+{% import 'form.twig' as form %}
+{% block head %}
+	<title>Add a post</title>
+{% endblock %}
+
+{% block content %}
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+      <a href="?p=blog" type="button" class="btn btn-default">View all blog posts</a>
+    </div>
+  </div>
+    <h1>Add post</h1>
+</div>
+<form action="index.php?p=add-post" method="post" enctype="multipart/form-data">
+
+	{{ form.input('title', 'Title')  }}
+        {{ form.textarea('header', 'Header', 03) }}
+	{{ form.textareacontent('content', 'Content', 30) }}
+        {{ form.input('author', 'Author') }}
+        {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)')}}
+        <div class="form-group"><br>
+		<button type="submit" class="btn btn-success" name="publish">Publish the post</button>
+	</div>
+
+</form>
+        
+{% endblock %}

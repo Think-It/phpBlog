@@ -1,0 +1,41 @@
+{% extends 'layout.twig' %}
+{% import 'form.twig' as form %}
+
+{% block head %}
+	<title>Edit post</title>
+{% endblock %}
+
+{% block content %}
+{% for editThisPost in singlePost %}
+    
+    
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+      <a href="?p=singlepost&id={{editThisPost.id}}" type="button" class="btn btn-default">View this blog post</a>
+    </div>
+  </div>
+    <h1>Edit post - <small>{{editThisPost.title}}</small></h1>
+</div>
+<form action="" method="post" id="editform" enctype="multipart/form-data">
+        {{ form.readonly('id', 'ID', editThisPost.id )  }}
+	{{ form.input('title', 'Title', editThisPost.title )  }}
+        {{ form.textarea('header', 'Header (max 200 characters)', 03, editThisPost.header) }}
+        {{ form.textareacontent('content', 'Content', 30, editThisPost.content) }}
+        {{ form.input('author', 'Author', editThisPost.author) }}
+        {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)', editThisPost.featuredImg)}}
+        {{ form.readonly('imagepath', 'Image displayed', editThisPost.featuredImg )  }}
+        <img src="{{editThisPost.featuredImg}}" with="150" height="150"/>
+        <div class="form-group"><br><br>
+		<button type="submit" class="btn btn-info" name="update">Update this post</button>
+                <button type="submit"  class="btn btn-danger" name="delete">Delete this post</button>
+	</div>
+</form>
+        
+
+        
+
+{% endfor %}
+{% endblock %}
+
+
