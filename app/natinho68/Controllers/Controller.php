@@ -30,7 +30,6 @@ class Controller{
     public function uploadImg(){
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
-        $path = $folder.'/'.$file;
         $sizeMax = 4000000;
         $size = filesize($_FILES['image']['tmp_name']);
         $extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -67,6 +66,7 @@ class Controller{
                  $file = preg_replace('/([^.a-z0-9]+)/i', '-', $file);
                  if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.'/'.$file)) //if true, upload ok
                  {
+                      $path = $folder.'/'.$file;
                       return $path;
                  }
                  else //else return false.
