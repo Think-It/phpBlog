@@ -27,7 +27,6 @@ class PostsManager
   {
     $this->_db->exec('DELETE FROM posts WHERE id = '.$post->id());
   }
-  
 
    public function getSinglePost($id)
   {

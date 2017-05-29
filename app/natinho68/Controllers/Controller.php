@@ -90,7 +90,7 @@ class Controller{
                       $session = new Session();
                       $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
                       $session->flash();
-                      echo "<meta http-equiv='refresh' content='2'>";
+                      header('Location: '.$_SERVER['REQUEST_URI']);
                 }
                 else
                 { 
@@ -104,11 +104,10 @@ class Controller{
                                 ]); 
                     $manager->add($newpost); // Create a new post
                       unset($_SESSION['addPostDatas']);
+                      header('Location: index.php?p=blog');
                       $session = new Session();
                       $session->setFlash('The post was published !', 'success');
                       $session->flash();
-                      echo "<meta http-equiv='refresh' content='4'>";
-                      
                 }     
             }
         }
@@ -117,10 +116,7 @@ class Controller{
         
         
     public function updatePost(){
-        $session = new Session();
-        $session->setFlash('The post has been updated !', 'success');
-        $session->flash();
-        
+      
         $manager = new PostsManager($this->db);
             if(isset($_POST['update']  )){
                 
@@ -155,23 +151,27 @@ class Controller{
                                   
                                 $manager->update($post);
                                 header('Location: '.$_SERVER['REQUEST_URI']);
+                                $session = new Session();
+                                $session->setFlash('The post has been updated !', 'success');
+                                $session->flash();
                                 }
+
                 }
     }
 
                 
     public function deletePost(){
-        $session = new Session();
-        $session->setFlash('The post has been deleted !', 'info');
-        $session->flash(); 
         $manager = new PostsManager($this->db);
         if(isset($_POST['delete'])){
             $post = new Post([
                               'id' => $_POST['id']
                             ]);
             $manager->delete($post);           
-            header('Location: '.$_SERVER['REQUEST_URI']);
-
+            header('Location: index.php?p=blog');
+            $session = new Session();
+            $session->setFlash('The post has been deleted !', 'info');
+            $session->flash(); 
             }
+
         }
 }
