@@ -3,6 +3,7 @@ namespace natinho68\Controllers;
 use natinho68\Controllers\Session as Session;
 use natinho68\Models\PostsManager as PostsManager;
 use natinho68\Models\Post as Post;
+ob_start();
 class Controller{
     
     public function __construct(\Twig_Environment $twig, $db){
@@ -116,6 +117,10 @@ class Controller{
         
         
     public function updatePost(){
+        $session = new Session();
+        $session->setFlash('The post has been updated !', 'success');
+        $session->flash();
+        
         $manager = new PostsManager($this->db);
             if(isset($_POST['update']  )){
                 
@@ -146,29 +151,26 @@ class Controller{
                                   'date' => date("Y-m-d H:i:s"),
                                   'content' => $_POST['content'],
                                   'featuredImg' => $image
-                                ]);
+                                ]);       
+                                  
                                 $manager->update($post);
-                                $session = new Session();
-                                $session->setFlash('The post has been updated !', 'success');
-                                $session->flash();
-                                echo "<meta http-equiv='refresh' content='2'>";
+                                header('Location: '.$_SERVER['REQUEST_URI']);
                                 }
                 }
-
-                }
+    }
 
                 
     public function deletePost(){
+        $session = new Session();
+        $session->setFlash('The post has been deleted !', 'info');
+        $session->flash(); 
         $manager = new PostsManager($this->db);
         if(isset($_POST['delete'])){
             $post = new Post([
                               'id' => $_POST['id']
                             ]);
-            $manager->delete($post);
-            $session = new Session();
-            $session->setFlash('The post has been deleted !', 'info');
-            $session->flash();            
-            echo "<meta http-equiv='refresh' content='4'>";
+            $manager->delete($post);           
+            header('Location: '.$_SERVER['REQUEST_URI']);
 
             }
         }
