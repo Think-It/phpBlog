@@ -22,7 +22,7 @@ class Controller{
         }
         
     public function addPostView($view){
-            echo $this->twig->render($view, ['addPost']);
+            echo $this->twig->render($view, ['errorpost' => $errorpost]);
         }
        
        
@@ -85,10 +85,19 @@ class Controller{
             $manager = new PostsManager($this->db);
             if(isset($_POST['publish'])){
                 if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content']))
-                {
+                {     $errorpost = new Post([
+                                'title' => $_POST['title'],
+                                'header' => $_POST['header'],
+                                'author' => $_POST['author'],
+                                'date' => date("Y-m-d H:i:s"),
+                                'content' => $_POST['content'],
+                                'featuredImg' => $this->uploadImg()
+                                ]);
                       $session = new Session();
                       $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
                       $session->flash();
+                      
+                      
                 }
                 else
                 { 
@@ -105,7 +114,10 @@ class Controller{
                       $session = new Session();
                       $session->setFlash('The post was published !', 'success');
                       $session->flash();
+                      echo "<meta http-equiv='refresh' content='4'>";
                 }
+                
+                 
             }
         }
         
@@ -148,7 +160,7 @@ class Controller{
                                 $session = new Session();
                                 $session->setFlash('The post has been updated !', 'success');
                                 $session->flash();
-                                echo "<meta http-equiv='refresh' content='0'>";
+                                echo "<meta http-equiv='refresh' content='4'>";
                                 }
                 }
 
@@ -165,7 +177,7 @@ class Controller{
             $session = new Session();
             $session->setFlash('The post has been deleted !', 'info');
             $session->flash();            
-            echo "<meta http-equiv='refresh' content='0'>";
+            echo "<meta http-equiv='refresh' content='4'>";
 
             }
         }

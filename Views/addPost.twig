@@ -13,17 +13,21 @@
   </div>
     <h1>Add post</h1>
 </div>
-<form action="index.php?p=add-post" method="post" enctype="multipart/form-data">
-
-	{{ form.input('title', 'Title')  }}
-        {{ form.textarea('header', 'Header', 03) }}
-	{{ form.textareacontent('content', 'Content', 30) }}
-        {{ form.input('author', 'Author') }}
+<form action="index.php?p=add-post" method="post" id="add" name="add" enctype="multipart/form-data">
+    {% if errorpost is defined %}
+        {{dump(errorpost)}}
+        <h1>some stuff</h1>
+     {% endif %}
+	{{ form.input('title', 'Title', errorpost.title)  }}
+        {{ form.textarea('header', 'Header', 03, errorpost.header) }}
+	{{ form.textareacontent('content', 'Content', 30, errorpost.content) }}
+        {{ form.input('author', 'Author', errorpost.author) }}
         {{ form.file('image', 'Optional - Select a featured image (max size 4Mo)')}}
         <div class="form-group"><br>
 		<button type="submit" class="btn btn-success" name="publish">Publish the post</button>
 	</div>
-
+       
 </form>
+        
         
 {% endblock %}

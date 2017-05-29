@@ -28,6 +28,7 @@ $twig = new Twig_Environment($loader, [
 	]);
 $twig->addExtension(new Twig_Extension_Debug());
 
+
 $controller = new Controller($twig, $db);
 
 switch ($page){
