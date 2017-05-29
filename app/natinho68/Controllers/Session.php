@@ -27,7 +27,7 @@ Class Session{
             <div id="alert" class="alert alert-<?php echo $_SESSION['flash']['type'] ?>" role="alert">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            
-                <strong><?php echo $_SESSION['flash']['message']; ?></strong>
+                <strong><?php print_r($_SESSION['flash']['message']); ?></strong>
             </div>
             <?php
             unset($_SESSION['flash']);

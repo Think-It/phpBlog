@@ -5,26 +5,29 @@ use natinho68\Models\PostsManager as PostsManager;
 use natinho68\Models\Post as Post;
 class Controller{
     
-        public function __construct(\Twig_Environment $twig, $db){
+    public function __construct(\Twig_Environment $twig, $db){
             $this->db = $db;
             $this->twig = $twig;
         }
     
-        public function home($view){
+    public function home($view){
             echo $this->twig->render($view);
         }
         
-        public function showPost($id, $view) {
+    public function showPost($id, $view) {
             $posts = new PostsManager($this->db);
             $post = $posts->getSinglePost($id);
             echo $this->twig->render($view, ['singlePost' => $post]);
        
         }
-        public function addPostView($view){
+        
+    public function addPostView($view){
             echo $this->twig->render($view, ['addPost']);
         }
-        
-        public function uploadImg(){
+       
+       
+
+    public function uploadImg(){
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
         $path = $folder.'/'.$file;
@@ -44,6 +47,7 @@ class Controller{
                  $erreur = new Session();
                  $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
                  $erreur->flash();
+                 die();
                  
             }
             if($size>$sizeMax)
@@ -51,6 +55,8 @@ class Controller{
                  $erreur = new Session();
                  $erreur->setFlash("File too large...");
                  $erreur->flash();
+                 die();
+                 
             }
             if(!isset($erreur)) //if no errors, upload
             {
@@ -68,15 +74,14 @@ class Controller{
                       $erreur = new Session();
                       $erreur->setFlash("Fail to upload !");
                       $erreur->flash();
+                      die();
                  }
             }
-            else
-            {
-                 echo $erreur;
-            }
+
         }        
-        }
-        public function addNewPost(){
+    }
+        
+    public function addNewPost(){
             $manager = new PostsManager($this->db);
             if(isset($_POST['publish'])){
                 if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content']))
@@ -107,7 +112,7 @@ class Controller{
        
         
         
-        public function updatePost(){
+    public function updatePost(){
         $manager = new PostsManager($this->db);
             if(isset($_POST['update']  )){
                 
@@ -150,7 +155,7 @@ class Controller{
                 }
 
                 
-        public function deletePost(){
+    public function deletePost(){
         $manager = new PostsManager($this->db);
         if(isset($_POST['delete'])){
             $post = new Post([
