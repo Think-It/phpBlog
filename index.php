@@ -28,6 +28,11 @@ $twig = new Twig_Environment($loader, [
 	]);
 $twig->addExtension(new Twig_Extension_Debug());
 
+if(!empty($_SESSION['addPostDatas'])){
+$twig->addGlobal('addPostDatas', $_SESSION['addPostDatas']);    
+}
+
+
 
 $controller = new Controller($twig, $db);
 
