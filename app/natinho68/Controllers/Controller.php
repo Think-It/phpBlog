@@ -82,42 +82,43 @@ class Controller{
         }        
     }
         
-    public function addNewPost(){
-            $manager = new PostsManager($this->db);
-            if(isset($_POST['publish'])){
-                if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content']))
-                {     $_SESSION['addPostDatas'] = $_POST;
-                      $session = new Session();
-                      $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
-                      $session->flash();
-                      header('Location: '.$_SERVER['REQUEST_URI']);
-                }
-                else
-                { 
-                    $newpost = new Post([
-                                'title' => $_POST['title'],
-                                'header' => $_POST['header'],
-                                'author' => $_POST['author'],
-                                'date' => date("Y-m-d H:i:s"),
-                                'content' => $_POST['content'],
-                                'featuredImg' => $this->uploadImg()
-                                ]); 
-                    $manager->add($newpost); // Create a new post
-                      unset($_SESSION['addPostDatas']);
-                      header('Location: index.php?p=blog');
-                      $session = new Session();
-                      $session->setFlash('The post was published !', 'success');
-                      $session->flash();
-                }     
+public function addNewPost()
+{
+    $session = new Session();
+    $manager = new PostsManager($this->db);
+    if (isset($_POST['publish'])) {
+        if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content'])) {
+            $_SESSION['addPostDatas'] = $_POST;
+            $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
+
+        } else {
+            $newpost = new Post([
+                'title' => $_POST['title'],
+                'header' => $_POST['header'],
+                'author' => $_POST['author'],
+                'date' => date("Y-m-d H:i:s"),
+                'content' => $_POST['content'],
+                'featuredImg' => $this->uploadImg()
+            ]);
+            $manager->add($newpost); // Create a new post
+            unset($_SESSION['addPostDatas']);
+            $session->setFlash('The post was published !', 'success');
+            header('Location: ' . $_SERVER['REQUEST_URI']);
+            exit();
             }
+            
+        } else {
+            $session->flash();
         }
-        
+    }
        
-        
         
     public function updatePost(){
       
         $manager = new PostsManager($this->db);
+        $session = new Session();
             if(isset($_POST['update']  )){
                 
                 // Required field names
@@ -131,9 +132,7 @@ class Controller{
                 }
 
                 if ($error) {
-                      $session = new Session();
                       $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
-                      $session->flash();
                 } else {    
                    
                         $uploadImg = $this->uploadImg();
@@ -150,28 +149,30 @@ class Controller{
                                 ]);       
                                   
                                 $manager->update($post);
-                                header('Location: '.$_SERVER['REQUEST_URI']);
-                                $session = new Session();
                                 $session->setFlash('The post has been updated !', 'success');
-                                $session->flash();
+                                header('Location: '.$_SERVER['REQUEST_URI']);
+                                exit();
                                 }
 
+                } else {
+                $session->flash();
                 }
     }
 
                 
     public function deletePost(){
         $manager = new PostsManager($this->db);
+        $session = new Session();
         if(isset($_POST['delete'])){
             $post = new Post([
                               'id' => $_POST['id']
                             ]);
-            $manager->delete($post);           
-            header('Location: index.php?p=blog');
-            $session = new Session();
+            $manager->delete($post);       
             $session->setFlash('The post has been deleted !', 'info');
-            $session->flash(); 
+            header('Location: '.$_SERVER['REQUEST_URI']);
+            exit();
+            } else {
+                $session->flash(); 
             }
-
         }
 }
