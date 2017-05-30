@@ -22,9 +22,9 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br>
         <form method="post" action="">
-            {{ form.input('name', 'Your firstname and lastname') }}
-            {{ form.input('email', 'Your email') }}
-            {{ form.textarea('message', 'Your message', 10) }}
+            {{ form.input('name', 'Your firstname and lastname', emailDatas.name) }}
+            {{ form.input('email', 'Your email', emailDatas.email) }}
+            {{ form.textarea('message', 'Your message', 10, emailDatas.message) }}
 	<div class="form-group">
 		<button type="submit" name="sendEmail" class="btn btn-primary mybutton">Submit my message</button>
 	</div>

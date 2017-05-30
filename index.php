@@ -32,7 +32,11 @@ $twig = new Twig_Environment($loader, [
 $twig->addExtension(new Twig_Extension_Debug());
 
 if(!empty($_SESSION['addPostDatas'])){
-$twig->addGlobal('addPostDatas', $_SESSION['addPostDatas']);    
+    $twig->addGlobal('addPostDatas', $_SESSION['addPostDatas']);
+}
+
+if(!empty($_SESSION['emailDatas'])){
+    $twig->addGlobal('emailDatas', $_SESSION['emailDatas']);
 }
 
 
