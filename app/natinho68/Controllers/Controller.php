@@ -29,6 +29,7 @@ class Controller{
        
 
     public function uploadImg(){
+        $erreur = new Session();
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
         $sizeMax = 4000000;
@@ -37,14 +38,12 @@ class Controller{
         $extension = strrchr($_FILES['image']['name'], '.'); 
         //Security verification
             if(empty($file)){
-                $session = new Session();
                 $session->setFlash("No featured image uploaded ...", "warning");
                 $session->flash();
                 
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $erreur = new Session();
                  $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
                  $erreur->flash();
                  die();
@@ -52,12 +51,21 @@ class Controller{
             }
             if($size>$sizeMax)
             {
-                 $erreur = new Session();
-                 $erreur->setFlash("File too large...");
+                 $erreur->setFlash("File too large... max size 4Mo");
                  $erreur->flash();
                  die();
                  
             }
+            
+            
+            if($size== 0)
+            {
+                 $erreur->setFlash("Fail to upload !");
+                 $erreur->flash();
+                 die();
+            }
+            
+            
             if(!isset($erreur)) //if no errors, upload
             {
                  //file name formating
