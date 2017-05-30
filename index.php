@@ -7,6 +7,9 @@ use natinho68\Controllers\MailController as MailController;
 use natinho68\Controllers\Controller as Controller;
 
 
+
+
+
 $db = new SPDO();
 $session = new Session();
 $posts = new PostsManager($db);

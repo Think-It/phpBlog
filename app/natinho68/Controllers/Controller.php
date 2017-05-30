@@ -29,7 +29,7 @@ class Controller{
        
 
     public function uploadImg(){
-        $erreur = new Session();
+        $session = new Session();
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
         $sizeMax = 4000000;
@@ -44,15 +44,15 @@ class Controller{
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
-                 $erreur->flash();
+                 $session->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
+                 $session->flash();
                  die();
                  
             }
             if($size>$sizeMax)
             {
-                 $erreur->setFlash("File too large... max size 4Mo");
-                 $erreur->flash();
+                 $session->setFlash("File too large... max size 4Mo");
+                 $session->flash();
                  die();
                  
             }
@@ -60,13 +60,13 @@ class Controller{
             
             if($size== 0)
             {
-                 $erreur->setFlash("Fail to upload !");
-                 $erreur->flash();
+                 $session->setFlash("Fail to upload !");
+                 $session->flash();
                  die();
             }
             
             
-            if(!isset($erreur)) //if no errors, upload
+            if(!isset($session)) //if no errors, upload
             {
                  //file name formating
                  $file = bin2hex(mcrypt_create_iv).$extension;
@@ -77,9 +77,8 @@ class Controller{
                  }
                  else //else return false.
                  {
-                      $erreur = new Session();
-                      $erreur->setFlash("Fail to upload !");
-                      $erreur->flash();
+                      $session->setFlash("Fail to upload !");
+                      $session->flash();
                       die();
                  }
             }
