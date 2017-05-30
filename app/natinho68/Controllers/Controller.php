@@ -29,7 +29,6 @@ class Controller{
        
 
     public function uploadImg(){
-        $session = new Session();
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
         $sizeMax = 4000000;
@@ -38,35 +37,28 @@ class Controller{
         $extension = strrchr($_FILES['image']['name'], '.'); 
         //Security verification
             if(empty($file)){
+                $session = new Session();
                 $session->setFlash("No featured image uploaded ...", "warning");
                 $session->flash();
                 
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $session->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
-                 $session->flash();
+                 $erreur = new Session();
+                 $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
+                 $erreur->flash();
                  die();
                  
             }
             if($size>$sizeMax)
             {
-                 $session->setFlash("File too large... max size 4Mo");
-                 $session->flash();
+                 $erreur = new Session();
+                 $erreur->setFlash("File too large...");
+                 $erreur->flash();
                  die();
                  
             }
-            
-            
-            if($size== 0)
-            {
-                 $session->setFlash("Fail to upload !");
-                 $session->flash();
-                 die();
-            }
-            
-            
-            if(!isset($session)) //if no errors, upload
+            if(!isset($erreur)) //if no errors, upload
             {
                  //file name formating
                  $file = bin2hex(mcrypt_create_iv).$extension;
@@ -77,12 +69,12 @@ class Controller{
                  }
                  else //else return false.
                  {
-                      $session->setFlash("Fail to upload !");
-                      $session->flash();
+                      $erreur = new Session();
+                      $erreur->setFlash("Fail to upload !");
+                      $erreur->flash();
                       die();
                  }
             }
-
         }        
     }
         
