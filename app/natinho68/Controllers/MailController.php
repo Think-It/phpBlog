@@ -1,5 +1,7 @@
 <?php
 namespace natinho68\Controllers;
+use natinho68\Models\Mail;
+use natinho68\Controllers\Session;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,8 +14,6 @@ namespace natinho68\Controllers;
  * @author nathanmeyer
  */
 
-use natinho68\Models\Mail;
-use natinho68\Controllers\Session;
 
 
 class MailController {

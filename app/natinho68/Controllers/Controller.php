@@ -4,6 +4,7 @@ use natinho68\Controllers\Session as Session;
 use natinho68\Models\PostsManager as PostsManager;
 use natinho68\Models\Post as Post;
 ob_start();
+
 class Controller{
     
     public function __construct(\Twig_Environment $twig, $db){
@@ -19,15 +20,13 @@ class Controller{
             $posts = new PostsManager($this->db);
             $post = $posts->getSinglePost($id);
             echo $this->twig->render($view, ['singlePost' => $post]);
-       
         }
         
     public function addPostView($view){
             echo $this->twig->render($view);
         }
        
-       
-
+        
     public function uploadImg(){
         $folder = 'img/uploads';
         $file = basename($_FILES['image']['name']);
@@ -79,11 +78,11 @@ class Controller{
     }
         
 public function addNewPost()
-{
+{ 
     $session = new Session();
     $manager = new PostsManager($this->db);
     if (isset($_POST['publish'])) {
-        if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content'])) {
+        if(empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content'])) {
             $_SESSION['addPostDatas'] = $_POST;
             $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
             header('Location: ' . $_SERVER['REQUEST_URI']);
