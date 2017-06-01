@@ -1,11 +1,11 @@
 <?php
-namespace Natinho68\Controllers;
-class SPDO
+namespace Natinho68\Config;
+class Database
 {
   /**
-   * Instance de la classe SPDO
+   * Instance de la classe Database
    *
-   * @var SPDO
+   * @var Database
    * @access private
    */ 
   private $PDOInstance = null;
@@ -54,7 +54,7 @@ class SPDO
   {  
     if(is_null(self::$instance))
     {
-      self::$instance = new SPDO();
+      self::$instance = new Database();
     }
     return self::$instance;
   }

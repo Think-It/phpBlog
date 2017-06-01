@@ -1,6 +1,6 @@
 <?php
 namespace Natinho68\Controllers;
-use Natinho68\Controllers\Session as Session;
+use Natinho68\Controllers\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
 ob_start();
@@ -37,14 +37,14 @@ class Controller{
         $extension = strrchr($_FILES['image']['name'], '.'); 
         //Security verification
             if(empty($file)){
-                $session = new Session();
-                $session->setFlash("No featured image uploaded ...", "warning");
-                $session->flash();
+                $notification = new Notification();
+                $notification->setFlash("No featured image uploaded ...", "warning");
+                $notification->flash();
                 
             } else {
             if(!in_array($extension, $extensions)) //if extensions aren't in the array
             {
-                 $erreur = new Session();
+                 $erreur = new Notification();
                  $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
                  $erreur->flash();
                  die();
@@ -52,7 +52,7 @@ class Controller{
             }
             if($size>$sizeMax)
             {
-                 $erreur = new Session();
+                 $erreur = new Notification();
                  $erreur->setFlash("File too large...");
                  $erreur->flash();
                  die();
@@ -69,7 +69,7 @@ class Controller{
                  }
                  else //else return false.
                  {
-                      $erreur = new Session();
+                      $erreur = new Notification();
                       $erreur->setFlash("Fail to upload !");
                       $erreur->flash();
                       die();
@@ -80,12 +80,12 @@ class Controller{
         
 public function addNewPost()
 {
-    $session = new Session();
+    $notification = new Notification();
     $manager = new PostsManager($this->db);
     if (isset($_POST['publish'])) {
         if (empty($_POST['title']) || empty($_POST['header']) || empty($_POST['author']) || empty($_POST['content'])) {
             $_SESSION['addPostDatas'] = $_POST;
-            $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
+            $notification->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
             header('Location: ' . $_SERVER['REQUEST_URI']);
             exit();
 
@@ -100,13 +100,13 @@ public function addNewPost()
             ]);
             $manager->add($newpost); // Create a new post
             unset($_SESSION['addPostDatas']);
-            $session->setFlash('The post was published !', 'success');
+            $notification->setFlash('The post was published !', 'success');
             header('Location: ' . $_SERVER['REQUEST_URI']);
             exit();
             }
             
         } else {
-            $session->flash();
+            $notification->flash();
         }
     }
        
@@ -114,7 +114,7 @@ public function addNewPost()
     public function updatePost(){
       
         $manager = new PostsManager($this->db);
-        $session = new Session();
+        $notification = new Notification();
             if(isset($_POST['update']  )){
                 
                 // Required field names
@@ -128,7 +128,7 @@ public function addNewPost()
                 }
 
                 if ($error) {
-                      $session->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
+                      $notification->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
                 } else {    
                    
                         $uploadImg = $this->uploadImg();
@@ -145,30 +145,30 @@ public function addNewPost()
                                 ]);       
                                   
                                 $manager->update($post);
-                                $session->setFlash('The post has been updated !', 'success');
+                                $notification->setFlash('The post has been updated !', 'success');
                                 header('Location: '.$_SERVER['REQUEST_URI']);
                                 exit();
                                 }
 
                 } else {
-                $session->flash();
+                $notification->flash();
                 }
     }
 
                 
     public function deletePost(){
         $manager = new PostsManager($this->db);
-        $session = new Session();
+        $notification = new Notification();
         if(isset($_POST['delete'])){
             $post = new Post([
                               'id' => $_POST['id']
                             ]);
             $manager->delete($post);       
-            $session->setFlash('The post has been deleted !', 'info');
+            $notification->setFlash('The post has been deleted !', 'info');
             header('Location: '.$_SERVER['REQUEST_URI']);
             exit();
             } else {
-                $session->flash(); 
+                $notification->flash();
             }
         }
 }

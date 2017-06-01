@@ -43,13 +43,13 @@ class ComposerStaticInit94c28cb43c1a3458190ee8040e22f5a8
     );
 
     public static $classMap = array (
+        'Natinho68\\Config\\Database' => __DIR__ . '/../..' . '/app/Natinho68/Config/Database.php',
         'Natinho68\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/Controller.php',
         'Natinho68\\Controllers\\MailController' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/MailController.php',
-        'Natinho68\\Controllers\\SPDO' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/SPDO.php',
-        'Natinho68\\Controllers\\Session' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/Session.php',
+        'Natinho68\\Controllers\\Notification' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/Notification.php',
+        'Natinho68\\Managers\\PostsManager' => __DIR__ . '/../..' . '/app/Natinho68/Managers/PostsManager.php',
         'Natinho68\\Models\\Mail' => __DIR__ . '/../..' . '/app/Natinho68/Models/Mail.php',
         'Natinho68\\Models\\Post' => __DIR__ . '/../..' . '/app/Natinho68/Models/Post.php',
-        'Natinho68\\Models\\PostsManager' => __DIR__ . '/../..' . '/app/Natinho68/Models/PostsManager.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Twig_BaseNodeVisitor' => __DIR__ . '/..' . '/twig/twig/lib/Twig/BaseNodeVisitor.php',
         'Twig_CacheInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/CacheInterface.php',

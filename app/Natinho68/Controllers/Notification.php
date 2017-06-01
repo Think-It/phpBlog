@@ -7,7 +7,7 @@ use Natinho68\Models\Post as Post;
  * and open the template in the editor.
  */
 
-Class Session{
+Class Notification{
 
     public function __construct(){
         if(!isset($_SESSION)){ 
