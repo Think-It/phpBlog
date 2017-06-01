@@ -13,6 +13,7 @@ return array(
     'Natinho68\\Managers\\PostsManager' => $baseDir . '/app/Natinho68/Managers/PostsManager.php',
     'Natinho68\\Models\\Mail' => $baseDir . '/app/Natinho68/Models/Mail.php',
     'Natinho68\\Models\\Post' => $baseDir . '/app/Natinho68/Models/Post.php',
+    'Natinho68\\Services\\Services' => $baseDir . '/app/Natinho68/Services/Services.php',
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'Twig_BaseNodeVisitor' => $vendorDir . '/twig/twig/lib/Twig/BaseNodeVisitor.php',
     'Twig_CacheInterface' => $vendorDir . '/twig/twig/lib/Twig/CacheInterface.php',

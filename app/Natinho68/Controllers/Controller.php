@@ -3,6 +3,7 @@ namespace Natinho68\Controllers;
 use Natinho68\Controllers\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
+use Natinho68\Services\Services as Services;
 ob_start();
 class Controller{
     
@@ -26,60 +27,9 @@ class Controller{
             echo $this->twig->render($view);
         }
        
-       
-
-    public function uploadImg(){
-        $folder = 'img/uploads';
-        $file = basename($_FILES['image']['name']);
-        $sizeMax = 4000000;
-        $size = filesize($_FILES['image']['tmp_name']);
-        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-        $extension = strrchr($_FILES['image']['name'], '.'); 
-        //Security verification
-            if(empty($file)){
-                $notification = new Notification();
-                $notification->setFlash("No featured image uploaded ...", "warning");
-                $notification->flash();
-                
-            } else {
-            if(!in_array($extension, $extensions)) //if extensions aren't in the array
-            {
-                 $erreur = new Notification();
-                 $erreur->setFlash("You must upload a file of type png, gif, jpg or jpeg ...");
-                 $erreur->flash();
-                 die();
-                 
-            }
-            if($size>$sizeMax)
-            {
-                 $erreur = new Notification();
-                 $erreur->setFlash("File too large...");
-                 $erreur->flash();
-                 die();
-                 
-            }
-            if(!isset($erreur)) //if no errors, upload
-            {
-                 //file name formating
-                 $file = rand().$extension;
-                 if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.'/'.$file)) //if true, upload ok
-                 {
-                      $path = $folder.'/'.$file;
-                      return $path;
-                 }
-                 else //else return false.
-                 {
-                      $erreur = new Notification();
-                      $erreur->setFlash("Fail to upload !");
-                      $erreur->flash();
-                      die();
-                 }
-            }
-        }        
-    }
         
-public function addNewPost()
-{
+    public function addNewPost(){
+    $uploadImg = new Services();
     $notification = new Notification();
     $manager = new PostsManager($this->db);
     if (isset($_POST['publish'])) {
@@ -96,7 +46,7 @@ public function addNewPost()
                 'author' => $_POST['author'],
                 'date' => date("Y-m-d H:i:s"),
                 'content' => $_POST['content'],
-                'featuredImg' => $this->uploadImg()
+                'featuredImg' => $uploadImg->uploadImg()
             ]);
             $manager->add($newpost); // Create a new post
             unset($_SESSION['addPostDatas']);
@@ -112,7 +62,7 @@ public function addNewPost()
        
         
     public function updatePost(){
-      
+        $uploadImg = new Services;
         $manager = new PostsManager($this->db);
         $notification = new Notification();
             if(isset($_POST['update']  )){
@@ -131,7 +81,7 @@ public function addNewPost()
                       $notification->setFlash('"Title", "Header", "Author" and "Content are required and cannot be empty"');
                 } else {    
                    
-                        $uploadImg = $this->uploadImg();
+                        $uploadImg = $uploadImg->uploadImg();
                         $image = isset($uploadImg) ? $uploadImg : $manager->getImage($_POST['id']);
                     
                                   $post = new Post([

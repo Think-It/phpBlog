@@ -45,7 +45,7 @@ class PostsManager
   }
 
   public function getImage($id){
-      $post = [];
+        
       $req = $this->_db->query('SELECT featuredImg FROM posts WHERE id ='.$id);
       $image = $req->fetch(\PDO::FETCH_ASSOC);
       return $image["featuredImg"];

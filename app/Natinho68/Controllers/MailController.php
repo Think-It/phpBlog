@@ -13,12 +13,15 @@ namespace Natinho68\Controllers;
  */
 
 use Natinho68\Models\Mail;
+use Natinho68\Services\Services;
 use Natinho68\Controllers\Notification;
 
 
 class MailController {
     public function mailer(){
-        $notification = new Notification();
+
+        
+        /*$notification = new Notification();
         if(isset($_POST['sendEmail'])){
             if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message']) || (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false))
                 {
@@ -43,7 +46,7 @@ class MailController {
                 
         } else {
           $notification->flash();
-        }
-    }
+        } */
+    } 
 
 }
