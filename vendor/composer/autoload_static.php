@@ -11,24 +11,24 @@ class ComposerStaticInit94c28cb43c1a3458190ee8040e22f5a8
     );
 
     public static $prefixLengthsPsr4 = array (
-        'n' => 
-        array (
-            'natinho68\\' => 10,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
         ),
+        'N' => 
+        array (
+            'Natinho68\\' => 10,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'natinho68\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/natinho68',
-        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Natinho68\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Natinho68',
         ),
     );
 
@@ -43,6 +43,13 @@ class ComposerStaticInit94c28cb43c1a3458190ee8040e22f5a8
     );
 
     public static $classMap = array (
+        'Natinho68\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/Controller.php',
+        'Natinho68\\Controllers\\MailController' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/MailController.php',
+        'Natinho68\\Controllers\\SPDO' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/SPDO.php',
+        'Natinho68\\Controllers\\Session' => __DIR__ . '/../..' . '/app/Natinho68/Controllers/Session.php',
+        'Natinho68\\Models\\Mail' => __DIR__ . '/../..' . '/app/Natinho68/Models/Mail.php',
+        'Natinho68\\Models\\Post' => __DIR__ . '/../..' . '/app/Natinho68/Models/Post.php',
+        'Natinho68\\Models\\PostsManager' => __DIR__ . '/../..' . '/app/Natinho68/Models/PostsManager.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Twig_BaseNodeVisitor' => __DIR__ . '/..' . '/twig/twig/lib/Twig/BaseNodeVisitor.php',
         'Twig_CacheInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/CacheInterface.php',
@@ -216,13 +223,6 @@ class ComposerStaticInit94c28cb43c1a3458190ee8040e22f5a8
         'Twig_TokenStream' => __DIR__ . '/..' . '/twig/twig/lib/Twig/TokenStream.php',
         'Twig_Util_DeprecationCollector' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Util/DeprecationCollector.php',
         'Twig_Util_TemplateDirIterator' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Util/TemplateDirIterator.php',
-        'natinho68\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/natinho68/Controllers/Controller.php',
-        'natinho68\\Controllers\\MailController' => __DIR__ . '/../..' . '/app/natinho68/Controllers/MailController.php',
-        'natinho68\\Controllers\\Session' => __DIR__ . '/../..' . '/app/natinho68/Controllers/Session.php',
-        'natinho68\\Models\\Mail' => __DIR__ . '/../..' . '/app/natinho68/Models/Mail.php',
-        'natinho68\\Models\\Post' => __DIR__ . '/../..' . '/app/natinho68/Models/Post.php',
-        'natinho68\\Models\\PostsManager' => __DIR__ . '/../..' . '/app/natinho68/Models/PostsManager.php',
-        'natinho68\\Models\\SPDO' => __DIR__ . '/../..' . '/app/natinho68/Controllers/SPDO.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

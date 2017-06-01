@@ -1,5 +1,5 @@
 <?php
-namespace natinho68\Models;
+namespace Natinho68\Controllers;
 class SPDO
 {
   /**

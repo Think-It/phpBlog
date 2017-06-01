@@ -1,6 +1,6 @@
 <?php
-namespace natinho68\Controllers;
-use natinho68\Models\Post as Post;
+namespace Natinho68\Controllers;
+use Natinho68\Models\Post as Post;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

@@ -1,10 +1,10 @@
 <?php
 require 'vendor/autoload.php';
-use natinho68\Models\SPDO as SPDO;
-use natinho68\Controllers\Session as Session;
-use natinho68\Models\PostsManager as PostsManager;
-use natinho68\Controllers\MailController as MailController;
-use natinho68\Controllers\Controller as Controller;
+use Natinho68\Controllers\SPDO as SPDO;
+use Natinho68\Controllers\Session as Session;
+use Natinho68\Models\PostsManager as PostsManager;
+use Natinho68\Controllers\MailController as MailController;
+use Natinho68\Controllers\Controller as Controller;
 
 
 

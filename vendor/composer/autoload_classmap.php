@@ -6,6 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Natinho68\\Controllers\\Controller' => $baseDir . '/app/Natinho68/Controllers/Controller.php',
+    'Natinho68\\Controllers\\MailController' => $baseDir . '/app/Natinho68/Controllers/MailController.php',
+    'Natinho68\\Controllers\\SPDO' => $baseDir . '/app/Natinho68/Controllers/SPDO.php',
+    'Natinho68\\Controllers\\Session' => $baseDir . '/app/Natinho68/Controllers/Session.php',
+    'Natinho68\\Models\\Mail' => $baseDir . '/app/Natinho68/Models/Mail.php',
+    'Natinho68\\Models\\Post' => $baseDir . '/app/Natinho68/Models/Post.php',
+    'Natinho68\\Models\\PostsManager' => $baseDir . '/app/Natinho68/Models/PostsManager.php',
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'Twig_BaseNodeVisitor' => $vendorDir . '/twig/twig/lib/Twig/BaseNodeVisitor.php',
     'Twig_CacheInterface' => $vendorDir . '/twig/twig/lib/Twig/CacheInterface.php',
@@ -179,11 +186,4 @@ return array(
     'Twig_TokenStream' => $vendorDir . '/twig/twig/lib/Twig/TokenStream.php',
     'Twig_Util_DeprecationCollector' => $vendorDir . '/twig/twig/lib/Twig/Util/DeprecationCollector.php',
     'Twig_Util_TemplateDirIterator' => $vendorDir . '/twig/twig/lib/Twig/Util/TemplateDirIterator.php',
-    'natinho68\\Controllers\\Controller' => $baseDir . '/app/natinho68/Controllers/Controller.php',
-    'natinho68\\Controllers\\MailController' => $baseDir . '/app/natinho68/Controllers/MailController.php',
-    'natinho68\\Controllers\\Session' => $baseDir . '/app/natinho68/Controllers/Session.php',
-    'natinho68\\Models\\Mail' => $baseDir . '/app/natinho68/Models/Mail.php',
-    'natinho68\\Models\\Post' => $baseDir . '/app/natinho68/Models/Post.php',
-    'natinho68\\Models\\PostsManager' => $baseDir . '/app/natinho68/Models/PostsManager.php',
-    'natinho68\\Models\\SPDO' => $baseDir . '/app/natinho68/Controllers/SPDO.php',
 );
