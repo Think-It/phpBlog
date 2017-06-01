@@ -1,7 +1,7 @@
 <?php
 namespace Natinho68\Controllers;
 use Natinho68\Controllers\Session as Session;
-use Natinho68\Models\PostsManager as PostsManager;
+use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
 ob_start();
 class Controller{

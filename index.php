@@ -2,12 +2,9 @@
 require 'vendor/autoload.php';
 use Natinho68\Controllers\SPDO as SPDO;
 use Natinho68\Controllers\Session as Session;
-use Natinho68\Models\PostsManager as PostsManager;
+use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Controllers\MailController as MailController;
 use Natinho68\Controllers\Controller as Controller;
-
-
-
 
 
 $db = new SPDO();

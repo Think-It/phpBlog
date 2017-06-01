@@ -1,5 +1,7 @@
 <?php
-namespace Natinho68\Models;
+namespace Natinho68\Managers;
+use Natinho68\Models\Post as Post;
+
 class PostsManager
 {
   private $_db; // Instance de PDO
