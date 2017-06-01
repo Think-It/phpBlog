@@ -61,7 +61,7 @@ class Controller{
             if(!isset($erreur)) //if no errors, upload
             {
                  //file name formating
-                 $file = bin2hex(mcrypt_create_iv).$extension;
+                 $file = rand().$extension;
                  if(move_uploaded_file($_FILES['image']['tmp_name'], $folder.'/'.$file)) //if true, upload ok
                  {
                       $path = $folder.'/'.$file;
