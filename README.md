@@ -1,6 +1,7 @@
 # phpBlog
 
 This php Blog system has a MVC pattern, use Twig v2.0 (Require php 7.0), Namespaces, Bootstrap v3.3, jQuery v3.2, and PDO.
+
 I built this project for my php oop learning with [OpenClassRooms](https://openclassrooms.com/).
 
 ## Getting Started
@@ -70,4 +71,5 @@ https://github.com/natinho68/phpBlog.git
 ## Authors
 
 [**Nathan MEYER**](https://github.com/natinho68)
+
 See also [ismail1432](https://github.com/ismail1432) who helps me a lot in this project.
