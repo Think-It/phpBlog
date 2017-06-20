@@ -1,14 +1,14 @@
 <?php
-/**
- * Class Controller control views and CRUD actions
- */
-
 namespace Natinho68\Controllers;
 use Natinho68\Controllers\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
 use Natinho68\Services\ImgUploader as ImgUploader;
 ob_start();
+
+/**
+ * Class Controller control views and CRUD actions
+ */
 class Controller{
     
     /**
@@ -109,7 +109,7 @@ class Controller{
         $uploadImg = new ImgUploader;
         // Instance of post manager for db select 
         $manager = new PostsManager($this->db);
-        // Instance of notificaition for alerts handler
+        // Instance of notification for alerts handler
         $notification = new Notification();
             if(isset($_POST['update']  )){
                 
