@@ -3,7 +3,7 @@ namespace Natinho68\Controllers;
 use Natinho68\Controllers\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
-use Natinho68\Services\Services as Services;
+use Natinho68\Services\ImgUploader as ImgUploader;
 ob_start();
 class Controller{
     
@@ -29,7 +29,7 @@ class Controller{
        
         
     public function addNewPost(){
-    $uploadImg = new Services();
+    $uploadImg = new ImgUploader();
     $notification = new Notification();
     $manager = new PostsManager($this->db);
     if (isset($_POST['publish'])) {
@@ -62,7 +62,7 @@ class Controller{
        
         
     public function updatePost(){
-        $uploadImg = new Services;
+        $uploadImg = new ImgUploader;
         $manager = new PostsManager($this->db);
         $notification = new Notification();
             if(isset($_POST['update']  )){

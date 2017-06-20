@@ -1,7 +1,6 @@
 <?php
 namespace Natinho68\Services;
 use Natinho68\Controllers\Notification;
-use Natinho68\Models\Mail;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,7 +12,7 @@ use Natinho68\Models\Mail;
  *
  * @author nathanmeyer
  */
-class Services {
+class ImgUploader {
 
     public function uploadImg(){
         $folder = 'img/uploads';
@@ -65,24 +64,6 @@ class Services {
         }        
     }
 
-    public function sendMail(){
-        /*
-        
-        $emailTo = "nathan.meyer-pro@live.fr";   
-        $emailSubject = "Contact form : New message from " . $this->name;
 
-        $emailMessage = "Name: ".$this->name."\n";
-        $emailMessage .= "Email: ".$this->mail."\n \n";
-        $emailMessage .= "Message: \n".$this->message."\n";
-
-        $headers = 'From: '.$this->mail."\r\n".
-        $headers = 'Content-Type: text/plain; charset=utf-8';
-        'Reply-To: '.$this->mail."\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-
-        mail($emailTo, $emailSubject, $emailMessage, $headers);
-         */
-        
-    }
     
 }
