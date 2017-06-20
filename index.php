@@ -2,7 +2,7 @@
 // Autoload
 require 'vendor/autoload.php';
 use Natinho68\Config\Database as Database;
-use Natinho68\Controllers\Notification as Notification;
+use Natinho68\Services\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Controllers\MailController as MailController;
 use Natinho68\Controllers\Controller as Controller;

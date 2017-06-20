@@ -1,20 +1,28 @@
 <?php
-namespace Natinho68\Controllers;
+namespace Natinho68\Services;
 use Natinho68\Models\Post as Post;
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+/** 
+ * Class Notification is an alerts handler
  */
-
 Class Notification{
-
+    
+    /**
+     * Construct 
+     * start session
+     */
     public function __construct(){
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
     }
     
+    /**
+     * Set the message and the bootstrap class to display in notifications
+     * 
+     * @param string $message the message you want to display
+     * @param string $type the bootstrap class you want to display, by default = danger
+     */
     public function setFlash($message, $type = 'danger'){
         $_SESSION['flash'] = array(
             'message' => $message,
@@ -22,6 +30,9 @@ Class Notification{
             );
     }
     
+    /**
+     * Display the notifications 
+     */
     public function flash(){
         if(isset($_SESSION['flash'])){
             ?>

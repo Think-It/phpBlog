@@ -2,7 +2,7 @@
 namespace Natinho68\Controllers;
 use Natinho68\Models\Mail;
 use Natinho68\Services\Mailer;
-use Natinho68\Controllers\Notification;
+use Natinho68\Services\Notification;
 
 /**
  * Class MailController check if emails contain errors and display notifications handler

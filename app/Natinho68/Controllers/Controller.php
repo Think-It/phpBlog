@@ -1,13 +1,13 @@
 <?php
 namespace Natinho68\Controllers;
-use Natinho68\Controllers\Notification as Notification;
+use Natinho68\Services\Notification as Notification;
 use Natinho68\Managers\PostsManager as PostsManager;
 use Natinho68\Models\Post as Post;
 use Natinho68\Services\ImgUploader as ImgUploader;
 ob_start();
 
 /**
- * Class Controller control views and CRUD actions
+ * Class Controller controls views and CRUD actions
  */
 class Controller{
     

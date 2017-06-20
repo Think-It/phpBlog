@@ -1,6 +1,6 @@
 <?php
 namespace Natinho68\Services;
-use Natinho68\Controllers\Notification;
+use Natinho68\Services\Notification;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
