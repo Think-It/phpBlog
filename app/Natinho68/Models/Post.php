@@ -1,5 +1,9 @@
 <?php
 namespace Natinho68\Models;
+
+/**
+ * Model for Post
+ */
 Class Post{
 
     private $_id;
@@ -16,6 +20,7 @@ Class Post{
     $this->hydrate($datas);
     }
     
+    // hydrate datas for Post
     public function hydrate(array $datas)
     {
     foreach ($datas as $key => $value)

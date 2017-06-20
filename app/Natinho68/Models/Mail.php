@@ -1,7 +1,9 @@
 <?php
 namespace Natinho68\Models;
+/**
+ * Model for email 
+ */
 class Mail{
-    
     private $name;
     private $mail;
     private $message;
@@ -11,6 +13,7 @@ class Mail{
     $this->hydrate($datas);
     }
     
+    // hydrate datas for Mail
     public function hydrate(array $datas)
     {
     foreach ($datas as $key => $value)
