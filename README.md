@@ -1,6 +1,6 @@
 # phpBlog
 
-This php Blog system has a MVC pattern, use Twig v2.0 (Require php 7.0), Namespaces, Bootstrap v3.3, jQuery v3.2, and PDO.
+This php Blog system has a MVC pattern, use Twig v2.0 (Required php 7.0), Namespaces, Bootstrap v3.3, jQuery v3.2, and PDO.
 
 I built this project for my php oop learning with [OpenClassRooms](https://openclassrooms.com/).
 
